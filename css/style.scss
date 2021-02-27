@@ -1,0 +1,16 @@
+---
+---
+
+body {
+  padding: 30px;
+  font-family: serif;
+  font-size: 16px;
+  max-width: 624px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  font-style: italic;
+}
+
