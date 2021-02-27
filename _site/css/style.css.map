@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"style.scss"
+	],
+	"sourcesContent": [
+		"body {\n  padding: 30px;\n  font-family: serif;\n  font-size: 16px;\n  max-width: 624px;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n}\n\nheader {\n  font-style: italic;\n}\n\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,CAAC,EACH,OAAO,EAAE,IAAI,EACb,WAAW,EAAE,KAAK,EAClB,SAAS,EAAE,IAAI,EACf,SAAS,EAAE,KAAK,EAChB,OAAO,EAAE,IAAI,EACb,kBAAkB,EAAE,aAAa,GAClC;;AAED,AAAA,MAAM,CAAC,EACL,UAAU,EAAE,MAAM,GACnB"
+}

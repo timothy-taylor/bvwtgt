@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"style.scss"
+	],
+	"sourcesContent": [
+		"body {\n  padding: 30px;\n  font-family: serif;\n  font-size: 16px;\n}\n\nmain {\n  max-width: 624px;\n  clear: both;\n}\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,CAAC,EACH,OAAO,EAAE,IAAI,EACb,WAAW,EAAE,KAAK,EAClB,SAAS,EAAE,IAAI,GAChB;;AAED,AAAA,IAAI,CAAC,EACH,SAAS,EAAE,KAAK,EAChB,KAAK,EAAE,IAAI,GACZ"
+}
