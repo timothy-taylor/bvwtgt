@@ -1,14 +1,14 @@
 ---
-title: bvwtgt is a person who makes music, explores inner/outer worlds, thinks about technology, process and information
+title: hi, bvwtgt.xyz is a small corner of the universe created by Tim Taylor //
 layout: default
 ---
 
-before twenty-twenty-one I was a luthier, woodworker, craftsman, chef, musician.
+before twenty-twenty-one Tim was a luthier, craftsman, woodworker, chef, and musician
 
-today I am an musician/artist and early-career developer focusing on sound, technology, remote work, and finding space from the attention economy.
+today, he is an musician/artist/developer focusing on sound & technology
 
-my interests include synthesis/sound design, ORCA, infosec, web development, Ruby, and Tarkovsky films. I am happy to talk about any of them!
+his interests include synthesis/sound design, programming, poetry, electric guitar, [ORCA](https://github.com/hundredrabbits/Orca), the unconscious, baking, the NBA, and Tarkovsky films
 
-if the pouring rain had an equal and opposite
-I would hear it now; at the exit, a doorway,
-dripping wet and unnameable
+my music is [here](https://tgtmusic.bandcamp.com/)
+
+contact him: tim [at] bvwtgt [dot] xyz
