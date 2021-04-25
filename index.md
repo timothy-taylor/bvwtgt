@@ -3,7 +3,7 @@ title: welcome, bvwtgt.xyz is the work of tim taylor //
 layout: default
 ---
 
-before twenty-twenty-one tim was a luthier, craftsman, woodworker, chef, and musician
+before twenty-twenty-one tim was a luthier, craftsman, woodworker, chef, and musician; [{ check out examples of his work }]({{ site.baseurl }}{% link gallery.md %})
 
 today, he is an musician/developer on a new path focusing on technology & sound
 
