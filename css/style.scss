@@ -1,16 +1,58 @@
 ---
 ---
-
 body {
-  padding: 30px;
-  font-family: serif;
-  font-size: 16px;
-  max-width: 624px;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+    padding: 30px;
+    font-family: serif;
+    font-size: 16px;
+    max-width: 624px
 }
 
 header {
-  font-style: italic;
+    float: left;
+    margin: 5px 30px 42px 0;
+    font-style: italic
 }
 
+a {
+    text-decoration: none;
+    color: black
+}
+
+nav {
+    margin: 0 0 30px
+
+}
+
+nav a:hover {
+    background: black;
+    color: white
+}
+
+main {
+    max-width: 624px;
+    clear:both
+}
+
+main a:hover, ::selection { 
+    background-color: #000;
+    color: #fff;
+    text-decoration: none
+}
+
+main figure img {
+    margin-left: 0px;
+    max-width: 400px;
+    font-style: italic
+}
+
+main figure figcaption {
+    margin-left: 0px;
+    max-width: calc(100vw - 30px)
+}
+
+footer { 
+    border-top: 1px solid;
+    padding: 30px 0 0 0;
+    clear: both;
+    font-style: italic
+}

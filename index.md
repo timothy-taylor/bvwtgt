@@ -1,14 +1,16 @@
 ---
-title: hi, bvwtgt.xyz is a small corner of the universe created by Tim Taylor //
+title: welcome, bvwtgt.xyz is the work of tim taylor //
 layout: default
 ---
 
-before twenty-twenty-one Tim was a luthier, craftsman, woodworker, chef, and musician
+before twenty-twenty-one tim was a luthier, craftsman, woodworker, chef, and musician
 
-today, he is an musician/artist/developer focusing on sound & technology
+today, he is an musician/developer on a new path focusing on technology & sound
 
-his interests include synthesis/sound design, programming, poetry, electric guitar, [ORCA](https://github.com/hundredrabbits/Orca), the unconscious, baking, the NBA, and Tarkovsky films
+his interests include synthesis/sound/instrument design, iterative processes, poetry, the electric guitar, baking, the NBA, and film
 
-my music is [here](https://tgtmusic.bandcamp.com/)
+[{ music can be found on bandcamp }](https://tgtmusic.bandcamp.com/) or [{ streamed on spotify }](https://open.spotify.com/artist/5pJDAJfpQWFQJVOB16Gx70?si=XUQiPH22QduDUyMmuIjV6g)
 
-contact him: tim [at] bvwtgt [dot] xyz
+*There has been a common thread throughout my life for the need to examine the constructed world. That is: the structures we create around us and boundaries we shared with nature, the way we partition things, and the different cultures/philosophies behind those things. I have always been sensitive to it.*
+
+contact @ tim [at] bvwtgt [dot] xyz
