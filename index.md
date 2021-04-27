@@ -11,6 +11,6 @@ his interests include synthesis/sound/instrument design, iterative processes, po
 
 [{ music can be found on bandcamp }](https://tgtmusic.bandcamp.com/) or [{ streamed on spotify }](https://open.spotify.com/artist/5pJDAJfpQWFQJVOB16Gx70?si=XUQiPH22QduDUyMmuIjV6g)
 
-*There has been a common thread throughout my life for the need to examine the constructed world. That is: the structures we create around us and boundaries we shared with nature, the way we partition things, and the different cultures/philosophies behind those things. I have always been sensitive to it.*
+*There has been a common thread throughout my life for the need to examine the constructed world. That is: the structures we create around us and boundaries we share with nature, and the different cultures/philosophies behind those partitions.*
 
 contact @ tim [at] bvwtgt [dot] xyz
