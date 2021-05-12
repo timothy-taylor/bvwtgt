@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <header>{{ page.title }}</header>
+        <main>
+            {{ content }}
+            <p> 
+                <a href={{ site.baseurl }}{% link blog.md %}>{ return }</a>
+            </p>
+        </main>
+        <footer>
+            2021 &copy; TGT
+        </footer>
+    </body>
+</html>
