@@ -16,6 +16,8 @@ main figure img { margin-left: 0px; max-width: 400px; font-style: italic; }
 
 main figure figcaption { margin-left: 0px; max-width: calc(100vw - 30px); }
 
+main .highlight { background-color: #FFF8DC; }
+
 footer { border-top: 1px solid; padding: 30px 0 0 0; clear: both; font-style: italic; }
 
 /*# sourceMappingURL=style.css.map */

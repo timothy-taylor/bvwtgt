@@ -50,6 +50,10 @@ main figure figcaption {
     max-width: calc(100vw - 30px)
 }
 
+main .highlight {
+    background-color: #FFF8DC;
+}
+
 footer { 
     border-top: 1px solid;
     padding: 30px 0 0 0;
