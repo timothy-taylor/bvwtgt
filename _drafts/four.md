@@ -10,7 +10,7 @@ Hi, this is part of ongoing process to document as I learn to create Reason Rack
 *the example RE as built in Recon*
 ![SimpleInstrumentGUI](/uploads/blog/simpleinstrument.png)
 
-I find this layout to be simple and effective, so I am going to document the hell out of how this works. We start by looking at device_2D.lua. This will contain the filepaths of the graphical elements that will be referenced in the hdgui_2D.lua. 
+I find this layout to be simple and effectual, so let's document the hell out of it. We start by looking at device_2D.lua. This will contain the filepaths of the graphical elements that will be referenced in the hdgui_2D.lua. With the actual graphical elements being contained in the diretory GUI2D/.
 
 device_2D.lua appears to not have any documentation in the scripting specifications docs. This is unfortunate, but seems pretty straightforward. In the SDK HelloWorld tutorial the skeleton for the device_2D.lua is given to be:
 ```
@@ -38,7 +38,7 @@ front = {
 ```
 *note that since I use jekyll/liquid to make this site I can't use double brackets next to eachother without liquid thinking its something it needs to process. So the above example (and probably many future examples) originally had double-brackets path=.... with no whitespace. I believe lua doesn't care too much about whitespace, so the above code should be fine, but if gui stuff ends up not working down the road this is a good place to look.*
 
-So each of our main "views" front, back, folded_front, folded_back will have a graphical element assigned to them. But the panels, especially the front, are made up of many more graphical elements (knobs, mod_wheels, etc.) These are defined within a block. The convention appears to be to define the graphical object and have it assigned to a block which contains the x&y location offset of the object and the path to an element.
+So each of our main "views" front, back, folded_front, folded_back will have a graphical element assigned to them. But the panels, especially the front, are made up of many more graphical elements (knobs, mod_wheels, etc.) These are named variables seperated by commas and defined within a block. The convention appears to be to define the graphical object as a named variable and have it assigned to a block which contains the x&y location offset of the object and the path to an element.
 
 *from tutorial:*
 ```
@@ -117,7 +117,7 @@ front = {
         },
         S_up_down_button_waveform = {
             offset = {260*Q,87*Q},
-            {path="Reason_GUI_front_root_Display_Waveform_UpDown_Button", 
+    {path="Reason_GUI_front_root_Display_Waveform_UpDown_Button", 
                 frames = 3},
         },
     },
@@ -126,3 +126,158 @@ front = {
 The offset paramater defines where the upper-left corner of the image should be placed with (0,0) being the upper-left corner of the entire Rack Extenstion. The path is the filename/filepath and frames, is how many frames is contained within the file.
 
 *todo: how do you determine how many frames is in an image without just counting them? Is this information encoded in the file in someway?*
+
+A note from the tutorial is the folded_back view must contain the cable_origin
+
+*from tutorial:*
+```
+folded_back = {
+    Bg = {
+        { path = "Panel_Folded_Back" },
+    },
+    CableOrigin = {
+		offset = { 1885, 75 },
+	},
+}
+```
+*from SimpleInstrument:*
+```
+Q=5
+
+folded_back = {
+    S_backdrop = { {path="Reason_GUI_back_folded_root_Panel"} },
+    S_cable_origin = {offset={1885,75}},
+    {
+        S_device_name = {
+            offset = {571*Q,8*Q},
+            {path="TapeHorz"},
+        },
+    },
+}
+```
+
+The tutorial also says to define a "Placeholder" on the back view, which is a space allocated for future use. 
+
+*from tutorial:*
+```
+back = {
+	Bg = {
+        { path = "Panel_Back_1U" },
+    },
+    Placeholder = {
+        offset = { 100, 100 },
+       {path = "Placeholder"}
+    },
+}
+```
+*abbreviated from SimpleInstrument:*
+```
+Q=5
+
+back = {
+...
+        S_placeholder = {
+            offset = {73*Q,102*Q},
+            {path="Placeholder"},
+        },
+...
+```
+
+So now all our views are assigned with the paths of their graphical elements and we move on to the hdgui_2D.lua script. This script is documented the [{ Jukebox Scripting Specifications }](https://developer.reasonstudios.com/documentation/rack-extension-sdk/4.2.0/jukebox-scripting-specification#hd_gui), so let's stay a bit more high-level in my analysis.
+
+We take the grapical elements we defined in device_2D.lua and and assign them to specific widget type "jbox.panel" which is formatted as follows:
+```
+... = jbox.panel{
+  graphics = { ... },
+  cable_origin = { ... }, // only present on folded_back
+  options = { ... }, // optional for front panel only, read specs
+  widgets = { ... },
+}
+```
+
+The graphics are set to the background graphics corresponding with your device_2D.lua specifications:
+
+*abbreviated from SimpleInstruments; hdgui_2D.lua:*
+```
+...
+front = jbox.panel{
+    graphics = { node = "S_backdrop" },
+...
+```
+*corresponding elements abbreviated from SimpleInstruments; device_2D.lua:*
+```
+...
+front = {
+    S_backdrop = { {path="Reason_GUI_front_root_Panel"} },
+...
+```
+
+The widget definitions correspond with all the other graphical elements that were defined in device_2D.lua. All widgets generally contain as follows:
+```
+graphics = {
+  node = "...",
+
+  hit_boundaries = {
+    left = ... ,
+    top = ... ,
+    right = ... ,
+    bottom = ...
+  },
+}
+```
+followed by widget specific specifications, for example:
+```
+jbox.analog_knob{
+  graphics = { ... },
+
+  value = ... ,
+
+  value_switch = ... ,
+  values = { ... },
+
+  show_remote_box = ... ,
+  show_automation_rect = ... ,
+  tooltip_position = ... ,
+  tooltip_template = { ... },
+
+  visibility_switch = ... ,
+  visibility_values = { ... } ,
+},
+```
+There are 25 different widgets so using the scripting specifications documentation is obviously paramount.
+
+*abbreviated from SimpleInstruments; hdgui_2D.lua:*
+```
+Q=5
+
+front = jbox.panel{
+...
+    widgets = {
+        jbox.analog_knob{
+            graphics = { node = "S_analog_knob_frequency", 
+            hit_boundaries = {
+                    left=Q*12,
+                    top=Q*12,
+                    right=Q*12,
+                    bottom=Q*12 }
+            },
+            value = "/custom_properties/frequency",
+        },
+...
+```
+*corresponding elements abbreviated from SimpleInstrument; device_2D.lua:*
+```
+Q=5
+
+front = {
+...
+    {
+        S_analog_knob_frequency = {
+            offset = {322*Q,69*Q},
+            {path="Reason_GUI_front_root_Knob_Frequency", 
+                frames = 63},
+        },
+...
+```
+
+This is basically it. You define your graphics for the four different views and then create the corresponding widgets for those elements. The only we haven't seen here is the "value" argument which will be explained in the next post when we take a look at the Motherboard definitions.
