@@ -9,8 +9,10 @@
         <header>{{ page.title }}</header>
         <main>
             {{ content }}
-            <p> 
-                <a href={{ site.baseurl }}{% link blog.md %}>{ return }</a>
+            <p>
+                <a href={{ page.previous.url }}>{ prev }</a> 
+                <a href={{ site.baseurl }}{% link blog.md %}>{ return }</a> 
+                <a href={{ page.next.url }}>{ next }</a>
             </p>
         </main>
         <footer>
