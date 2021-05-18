@@ -7,7 +7,7 @@ Hi, this is part of ongoing process to document as I learn to create Reason Rack
 
 #### The main parts of a Rack Extension are the GUI, the Data Model, and the Realtime Processing Code.
 
-for specifics, check the [{ docs }](https://developer.reasonstudios.com/documentation/rack-extension-sdk/4.2.0/jukebox-readme)
+for specifics, check the [{ docs }]({{ site.data.links.readme }})
 
 ### The GUI is defined in the following files & structures:
 
