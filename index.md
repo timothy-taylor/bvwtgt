@@ -10,7 +10,7 @@ his interests include synthesis/sound/instrument design, iterative processes, ba
 
 some recent projects:
 * [{ music on bandcamp }](https://tgtmusic.bandcamp.com/) or [{ streamed on spotify }](https://open.spotify.com/artist/5pJDAJfpQWFQJVOB16Gx70?si=XUQiPH22QduDUyMmuIjV6g)
-* [{ blog following the learning process of making Reason Rack Extension }]({{ site.baseurl }}{% link blog.md %})
+* [{ blog following learning in sound & technology}]({{ site.baseurl }}{% link blog.md %})
 * [{ sequencers for monome crow written in lua }](https://gist.github.com/timothy-taylor/b7cd40a10c8b52647a0f7c6b27103347)
 
 *There has been a common thread throughout my life for the need to examine the constructed world. That is: the structures we create around us and boundaries we share with nature, and the different cultures/philosophies behind those partitions.*

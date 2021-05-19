@@ -13,7 +13,7 @@ The realtime_controller.lua file contains:
 * a list of sample rates that are native to the RE, and a list of sample rates for resampling
 * a list of properties that should receive diffs in JBox_Export_RenderRealtime()
 
-*what are diffs? My beginners view on this is that they are any changes that have taken place in the state of the system.*
+> *diffs represent a property change*
 
 the skeleton for realtime_controller.lua:
 ```
