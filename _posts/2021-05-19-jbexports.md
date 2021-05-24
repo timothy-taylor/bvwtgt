@@ -175,6 +175,6 @@ Cool, we are getting into some real stuff now. Thoughts:
 * "Instance" and "SampleSound" iOperation keys came from realtime_controller.lua
 * SimpleInstrument and SampleSound header files will contain the definitions for `CSimpleInstrument` and `CSampleSound`
 * this code is nearly 50% debugging/defensive programming. I've read about defensive programming, but it's nice to see in the wild.
-* *todo: the final couple of lines of RenderRealtime are a bit opaque to me, both syntax and some of the terms. As I move forward into SimpleInstrument.cpp I will have to keep these lines in mind and revisit them.*
+* *~~todo: the final couple of lines of RenderRealtime are a bit opaque to me, both syntax and some of the terms. As I move forward into SimpleInstrument.cpp I will have to keep these lines in mind and revisit them.~~ pi is a pointer to privateState. privateState has to be cast (since it was void type) to CSimpleInstrument class and then we are dereferencing pi to access its RenderBatch function. This was actually simple and straightforward, just the use pi as a pointer name threw me off (amateur-hour).*
 
 Alright I am going to stop here to compartmentalize this a little bit. Will be moving onto SimpleInstrument.h + SimpleInstrument.cpp next.
