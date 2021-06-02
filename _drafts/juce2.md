@@ -3,27 +3,73 @@ title: getting started with juce
 tags: juce sound
 layout: posts
 ---
-I stumbled across a new yt video "learn modern c++ by building an audio plugin with juce framework", and, considering this basically exactly what I am attempting to do with Reason, I am going to dive into this real quick without thinking too much about it. I hadn't really thought about Juce as an option for this portfolio project (I had looked at it last year and gotten overwhelmed), but I've come a long when since then, learned alot, and believe I can tackle this. I like the option of creating a more "neutral" plugin, aka something that will run on any DAW. So we'll see. Once again, it is important for my own learning to kind of break things down, pull apart the threads to see exactly how things connect. It is particularly important with these kind of frameworks with tons of built in functionality. 
+#### debrief / to summarize
+The Juce plugin realtime code relies on two functions: `prepareToPlay` and `processBlock`. 
 
-download JUCE and run the develop branch
-```
-$ git clone https://github.com/juce-framework/JUCE.git
-$ cd JUCE
-$ git checkout develop
-```
-~/JUCE/extras/Projucer/Builds/MacOSX/Projucer.xcodeproj
-> *build and run* in xcode
+In `prepareToPlay` you will `prepare()` your `processorChain` by passing it a instance of the `ProcessSpec` object. You will then update any parameters and coefficients. The basic format is:
 
-create new project and git init in the directory; in projucer set language type (under settings for project) to C++17;
-
-*in .gitignore:*
 ```
-**/Builds
-**/JuceLibraryCode
-**/.DS_Store
+void 
+[Project]AudioProcessor::
+prepareToPlay (
+double sampleRate, 
+int samplesPerBlock
+)
+{
+    juce::dsp::ProcessSpec spec;
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.numChannels = 1;
+    spec.sampleRate = sampleRate;
+
+    leftProcessorChain.prepare(spec);
+    rightProcessorChain.prepare(spec);
+
+    ...
+
+    // update ProcessorChain parameters and coefficients
+
+    ...
+}
 ```
 
-Set "Scheme" to Standalone version, build and run in xcode. That's the basic setup!
+In `processBlock` you create an instance of ScopedNoDenormals to ensure you aren't using unnecessary CPU time and clear your buffer. You will then want to update any parameters or coefficients (like in prepareToPlay) before creating an `AudioBlock` that you pass your `buffer` to. You can then split that `block` into seperate channel blocks using `block.getSingleChannelBlock()` and then create your `ProcessContext` instance with that `block`. And then finally `process()` your `processorChain` by passing it that `ProcessContext` instance. The basic format is:
+```
+void 
+[Project]AudioProcessor::
+processBlock (
+juce::AudioBuffer<float>& buffer, 
+juce::MidiBuffer& midiMessages
+)
+{
+    juce::ScopedNoDenormals noDenormals;
+    auto InChannels  = getTotalNumInputChannels();
+    auto OutChannels = getTotalNumOutputChannels();
+
+    for (auto i = InChannels; i < OutChannels; ++i)
+        buffer.clear (i, 0, buffer.getNumSamples());
+
+    ...
+    // update ProcessorChain parameters and coefficients
+    ...
+
+    juce::dsp::AudioBlock<float> block(buffer);
+
+    auto leftBlock = block.getSingleChannelBlock(0);
+    auto rightBlock = block.getSingleChannelBlock(1);
+
+    juce::dsp::ProcessContextReplacing<float> 
+        leftContext(leftBlock);
+    juce::dsp::ProcessContextReplacing<float> 
+        rightContext(rightBlock);
+
+    leftProcessorChain.process(leftContext);
+    rightProcessorChain.process(rightContext);
+}
+```
+
+////
+
+*I stumbled across a new yt video "learn modern c++ by building an audio plugin with juce framework", and, considering this basically exactly what I am attempting to do with Reason, I am going to dive into this real quick without thinking too much about it. I hadn't really thought about Juce as an option for this portfolio project (I had looked at it last year and gotten overwhelmed), but I've come a long when since then, learned alot, and believe I can tackle this. I like the option of creating a more "neutral" plugin, aka something that will run on any DAW. So we'll see. Once again, it is important for my own learning to kind of break things down, pull apart the threads to see exactly how things connect. It is particularly important with these kind of frameworks with tons of built in functionality.*
 
 #### gui parameters
 
