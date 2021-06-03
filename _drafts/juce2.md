@@ -1,5 +1,5 @@
 ---
-title: getting started with juce
+title: plug-ins with juce basics
 tags: juce sound
 layout: posts
 ---
