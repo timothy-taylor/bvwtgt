@@ -281,9 +281,16 @@ void createWavetable()
 In our `createWavetable` function we can explicitly set harmonics which is cool:
 ![Harmonic Wavetable](/uploads/blog/harmonicwave.png)
 
-* there is an error that I didn't catch until I tried to build, need to set samples[i] to be += instead of = since we are looping over it multiple times:
+* 2 errors that I didn't catch until I tried to build, need to set samples[i] to be += instead of = since we are looping over it multiple times:
 ```
 samples[i] += (float) sample * harmonicWeights[harmonic];
+```
+
+* and we need to multiple our angleDelta by our current harmonic
+```
+auto angleDelta =
+    juce::MathConstants<double>::twoPi / (double) (tableSize - 1) 
+        * harmonics[harmonic];
 ```
 
 This obviously shows the flexibility of this approach, the ability to stack sines waves like this just through a for loop is very cool. We can create square waves, saw waves, triangle waves, etc as long as the first sample matches the last sample.
