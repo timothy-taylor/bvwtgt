@@ -1,5 +1,5 @@
 ---
-title: some structural basics
+title: some rack extension structural basics
 tags: reason sound
 layout: posts
 ---
