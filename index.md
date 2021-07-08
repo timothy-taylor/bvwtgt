@@ -1,5 +1,5 @@
 ---
-title: welcome, bvwtgt.xyz documents the ongoing processes/proejcts of tim taylor //
+title: welcome, bvwtgt.xyz documents the ongoing processes/projects of tim taylor //
 ---
 
 before twenty-twenty-one tim was a luthier, craftsman, woodworker, chef, and musician; [{ gallery of some examples of his work }]({{ site.baseurl }}{% link gallery.md %})
