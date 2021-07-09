@@ -1,7 +1,7 @@
 ---
 ---
 body {
-    padding: 30px;
+    padding: 42px;
     font-family: serif;
     font-size: 16px;
     max-width: 624px
@@ -18,14 +18,10 @@ a {
     color: black
 }
 
-nav {
-    margin: 0 0 30px
-
-}
-
-nav a:hover {
-    background: black;
-    color: white
+a:hover, ::selection { 
+    background-color: #000;
+    color: #fff;
+    text-decoration: none
 }
 
 main {
@@ -33,10 +29,14 @@ main {
     clear:both
 }
 
-main a:hover, ::selection { 
-    background-color: #000;
-    color: #fff;
-    text-decoration: none
+main h4{
+    margin-top: 55px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3px;
+    font-style: italic;
+    font-weight: normal;
+    text-align: right
 }
 
 main figure img {

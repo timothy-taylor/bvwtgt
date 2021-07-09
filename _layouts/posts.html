@@ -8,7 +8,15 @@
     <body>
         <header>{{ page.title }}</header>
         <main>
-            {{ content }}
+            <p>
+                {{ content }}
+            </p>
+            <p>
+                <h4>
+                    all posts are purely for education purposes; using the process of writing things down in my own words and typing code to make connections, find commonalities, learn frameworks, and understand languages; your mileage may vary.
+                </h4>
+            </p>
+
             <p>
                 <a href={{ page.previous.url }}>{ prev }</a> 
                 <a href={{ site.baseurl }}{% link blog.md %}>{ return }</a> 

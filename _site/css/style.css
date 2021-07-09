@@ -1,16 +1,14 @@
-body { padding: 30px; font-family: serif; font-size: 16px; max-width: 624px; }
+body { padding: 42px; font-family: serif; font-size: 16px; max-width: 624px; }
 
 header { float: left; margin: 5px 30px 42px 0; font-style: italic; }
 
 a { text-decoration: none; color: black; }
 
-nav { margin: 0 0 30px; }
-
-nav a:hover { background: black; color: white; }
+a:hover, ::selection { background-color: #000; color: #fff; text-decoration: none; }
 
 main { max-width: 624px; clear: both; }
 
-main a:hover, ::selection { background-color: #000; color: #fff; text-decoration: none; }
+main h4 { margin-top: 55px; border-style: solid; border-width: 1px; padding: 3px; font-style: italic; font-weight: normal; text-align: right; }
 
 main figure img { margin-left: 0px; max-width: 400px; font-style: italic; }
 
