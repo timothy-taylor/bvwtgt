@@ -26,13 +26,39 @@ import matplotlib.pyplot as plt
 simple sine example:
 
 ```
-A = .8
-f0 = 1000
-phi = np.pi/2
-fs = 44100
-t = np.arange(-.002, .002, 1.0/fs)
-x = A * np.cos(2*np.pi*f0*t+phi)
-plt.plot(x)
+A = .8                             # amplitude
+f0 = 1000                          # frequency
+phi = np.pi/2                      # phase
+fs = 44100                         # sampling rate
+t = np.arange(-.002, .002, 1.0/fs) # an array of discrete points
+x = A * np.cos(2 * np.pi * f0 * t + phi)
+
+plt.plot(t, x)
+plt.axis([-0.002, 0.002, -0.8, 0.8])
+plt.xlabel('time')
+plt.ylabel('amplitude')
+
+plt.show()
+```
+
+complex sinusoid example:
+
+```
+N = 500                  # size of the sequence
+k = 3                    # periodicity
+n = np.arange(-N/2, N/2) # time index
+s = np.exp(1j * 2 * np.pi * k * n / N)
+
+plt.plot(n, np.real(s)) # plot the real part of the complex sinusoid
+plt.axis([-N/2, N/2 - 1, -1, 1])
+plt.xlabel('time index "n"')
+plt.ylabel('amplitude')
+plt.show()
+
+plt.plot(n, np.imag(s)) # plot the imaginary part of the complex sinusoid
+plt.axis([-N/2, N/2 - 1, -1, 1])
+plt.xlabel('time index "n"')
+plt.ylabel('amplitude')
 plt.show()
 ```
 
@@ -95,3 +121,74 @@ write('test.wav', fs, y)
 // file to write to, sample rate, array of values
 ```
 
+### DFT in python
+
+*basics:*
+
+```
+import numpy as np
+
+X = np.array([])
+
+for k in Range(N):
+    s = np.exp(1j * 2 * np.pi * k / N * np.arange(N))
+    X = np.append(X, sum(x*np.conjugate(s)))
+```
+
+all of the variables are theoretically supplied by the complex input signal, like so:
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 64 # size
+k0 = 7 # periodicity / frequency
+x = np.exp(1j * 2 * np.pi * k0 / N * np.arange(N))
+
+X = np.array([])
+
+for k in range(N):
+    s = np.exp(1j * 2 * np.pi * k / N * np.arange(N))
+    X = np.append(X, sum(x*np.conjugate(s)))
+
+plt.plot(np.arange(N), abs(X))
+plt.axis([0, N - 1, 0, N])
+plt.show()
+```
+this will show one peak of size 64 at period 6
+
+and on a real signal:
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 64 # size
+k0 = 7 # periodicity / frequency
+x = np.cos(2 * np.pi * k0 / N * np.arange(N))
+
+X = np.array([])
+nv = np.arange(-N/2, N/2) # time index
+kv = np.arange(-N/2, N/2) # frequency index
+
+## DFT
+
+for k in kv:
+    s = np.exp(1j * 2 * np.pi * k / N * nv)
+    X = np.append(X, sum(x*np.conjugate(s)))
+
+plt.plot(kv, abs(X))
+plt.axis([-N/2, N/2 - 1, 0, N])
+plt.show()
+
+## Inverse DFT
+
+y = np.array([])
+for n in nv:
+    s = np.exp(1j * 2 * np.pi * n / N * kv)
+    y = np.append(y, 1.0/N * sum(X*s))
+
+plt.plot(kv, y)
+plt.axis([-N/2, N/2 - 1, -1, 1])
+plt.show()
+```
