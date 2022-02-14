@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: %i[ show update destroy ]
+  skip_before_action :require_login, only: [:index, :show]
 
   # GET /tags
   def index
@@ -8,9 +8,11 @@ class TagsController < ApplicationController
     render json: @tags
   end
 
-  # GET /tags/1
+  # GET /tag/:id
   def show
-    render json: @tag
+    @posts = Post.where(tag_id: params[:id])
+
+    render json: @posts
   end
 
   # POST /tags
@@ -18,34 +20,15 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
 
     if @tag.save
-      render json: @tag, status: :created, location: @tag
+      render json: @tag, status: :created, location: @tags
     else
       render json: @tag.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /tags/1
-  def update
-    if @tag.update(tag_params)
-      render json: @tag
-    else
-      render json: @tag.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /tags/1
-  def destroy
-    @tag.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tag
-      @tag = Tag.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tag_params
-      params.require(:tag).permit(:name)
-    end
+  def tag_params
+    params.require(:tag).permit(:name)
+  end
 end
