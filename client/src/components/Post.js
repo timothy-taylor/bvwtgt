@@ -5,6 +5,8 @@ import { useAtom } from "jotai";
 import { isLoggedInAtom } from "../Atoms";
 import CSRFToken from "../Cookies";
 import Header from "./Header";
+import Footer from "./Footer";
+import { marked } from "marked";
 
 const Post = () => {
   const { id } = useParams();
@@ -62,8 +64,10 @@ const Post = () => {
     <>
       <Header />
       <main>
+        <div class="post">
       <h2>{title}</h2>
-      <p>{content}</p>
+      <p dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+        </div>
       {isLoggedIn && (
         <>
           <p>post_id = {id}</p>
@@ -82,12 +86,13 @@ const Post = () => {
               onChange={(e) => handleContentChange(e)}
             />
             <br />
-            <button type="submit">Edit Post</button>
+            <button type="submit">Save Changes</button>
           </form>
         </>
       )}
       <Link to="/writing">Back to writing</Link>
       </main>
+      <Footer />
     </>
   );
 };

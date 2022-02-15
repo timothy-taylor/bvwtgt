@@ -13,9 +13,11 @@ User.create!(
     
 testing = Tag.create!(name: "testing")
 Post.create(
-  title: "test title", 
-  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a feugiat nibh, vitae congue augue. Donec at fermentum purus, accumsan mattis quam. Aliquam erat volutpat. Sed eget ullamcorper enim, quis malesuada nisi. Aenean venenatis magna et sapien pharetra, a aliquam ex finibus. Sed at aliquam neque. Praesent vel fringilla ex. Proin eget placerat ante. Nam lobortis, ligula vel varius eleifend, lectus odio malesuada diam, ac blandit nisl nisl et nisi. Aliquam convallis arcu aliquet tortor dapibus tempus. Integer rhoncus facilisis fringilla. Cras eros ligula, blandit in felis in, finibus tempus lorem. Ut ac faucibus magna. Etiam imperdiet, orci eu porttitor lacinia, velit eros porttitor nunc, mollis malesuada lacus nunc vitae urna.
+  title: "hello world", 
+  content: "During the past couple weeks I have been participating in Code Newbie's Cohort One 'Get a Job' challenge. One of the assignments was to document a handful of job descriptions from companies you were interested in and synthesize that data in order to know what kind of jobs are a reach, on target, or a safety as well as document what desirable skills you may want to add for your career development.
+  
+One of the areas I need to work on most came from a job description: 'excellent communication skills as demonstrated via past collaborative experience, writings, video, etc..'. I feel I can be a good communicator in person (especially nowadays), but have a historical lack of documentation of this ability.
 
-Donec nisl neque, luctus nec aliquam vitae, sagittis quis tortor. Nulla facilisi. Nam facilisis libero a porttitor accumsan. Sed convallis id justo vel efficitur. Morbi iaculis ornare eros, non blandit eros cursus sed. Morbi scelerisque condimentum purus ut accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a est vitae nibh blandit venenatis. Mauris a commodo risus.", 
+So it seems the time to start writing and documenting consistently. I wanted to take this opportunity to redo my so-called portfolio site to reflect this and reflect my increasing interest in Frontend Developement. This web page being a Rails API backend and React frontend to more accurately repesent the kind of work I am interested in.",
   tag: testing
 )

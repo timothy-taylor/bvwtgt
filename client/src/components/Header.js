@@ -8,8 +8,7 @@ const Header = (props) => {
   React.useEffect(() => {
     const writing = document.getElementById("nav-writing");
     const about = document.getElementById("nav-about");
-    const projects = document.getElementById("nav-projects");
-    [writing, about, projects].forEach((e) => e.classList.remove("active"));
+    [writing, about].forEach((e) => e.classList.remove("active"));
 
     switch (props.active) {
       case "Writing":
@@ -17,9 +16,6 @@ const Header = (props) => {
         break;
       case "About":
         about.classList.add("active");
-        break;
-      case "Projects":
-        projects.classList.add("active");
         break;
       default:
     }
@@ -41,9 +37,6 @@ const Header = (props) => {
         </Link>
         <Link to="/about">
           <button id="nav-about">About</button>
-        </Link>
-        <Link to="/projects">
-          <button id="nav-projects">Projects</button>
         </Link>
       </nav>
     </header>

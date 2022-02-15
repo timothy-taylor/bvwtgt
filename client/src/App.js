@@ -8,7 +8,6 @@ import Login from "./components/Login";
 import Post from "./components/Post";
 import User from "./components/User";
 import About from "./components/About";
-import Projects from "./components/Projects";
 import Writing from "./components/Writing";
 import { isLoggedInAtom, userAtom } from "./Atoms";
 
@@ -67,7 +66,6 @@ const App = () => {
           />
           <Route exact path="/post/:id" element={<Post />} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/writing" element={<Writing posts={posts} />} />
         </Routes>
       </BrowserRouter>

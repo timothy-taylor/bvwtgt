@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
          Hi and welcome.
         </h2>
       </main>
-      <footer></footer>
+      <Footer />
     </>
   );
 };

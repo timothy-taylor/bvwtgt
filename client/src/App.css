@@ -2,33 +2,35 @@
   width: 80vw;
   height: auto;
 }
+
 #nav-title, #nav-about, #nav-writing, #nav-projects {
   position: absolute;
   right: 0.4em;
-  font-size: 2.5em;
+  font-size: 2em;
   border-radius: 2px;
   transform: skew(178deg,178deg);
   width: 345px;
   text-transform: uppercase;
 }
+
 #nav-title {
-  top: 3em;
+  top: 2em;
   border: 1px solid black;
   font-weight: normal;
   text-align: center;
   text-transform: lowercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 }
+
 #nav-writing {
-  top: 4.5em;
+  top: 3.5em;
 }
+
 #nav-about {
-  top: 6em;
+  top: 5em;
 }
-#nav-projects {
-  top: 7.5em;
-}
-#nav-about:hover, #nav-writing:hover, #nav-projects:hover {
+
+#nav-about:hover, #nav-writing:hover {
   background-color: #636363;
   color: white;
   cursor: pointer;
@@ -37,19 +39,35 @@
 main {
   margin: 0.8em;
   position: relative;
-  top: 14em;
+  top: 8em;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 2em;
 }
 
 main h2 {
   font-size: 2em;
 }
 
+main h3 {
+  color: #C4C4C4;
+}
+
 main p {
   text-align: justify;
+  padding-top: 0.6em;
+}
+main blockquote {
+  padding: 0 1.3em 1.3em 1.3em;
+  font-style: italic;
+  border-left: 3px solid #C4C4C4;
+}
+main code {
+  background-color: #636363;
+  padding: 0.8em;
+  color: white;
 }
 a {
   color: #636363;
@@ -60,38 +78,44 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 20%;
+  letter-spacing: 3px;
+}
+
 .post {
   width: 100%;
-  margin-bottom: 1.3em;
+  margin-bottom: 3.3em;
   display: flex;
   justify-content: start;
   align-items: start;
   flex-direction: column;
 }
 
-#projects {
-  margin: 2em 0;
-  padding: 0.8em;
-  height: 909px;
-  width: 100%;
-  background-color: #636363;
-  color: white;
+.about-content {
+  max-width: 80ch; 
 }
 
 @media only screen and (min-width: 600px) {
-  main { top: 6em; }
+  main { top: 5em; }
+  #nav-title, #nav-about, #nav-writing { font-size: 2.5em; }
 }
 @media only screen and (min-width: 768px) {
   main { top: 2em; }
+  #nav-title, #nav-about, #nav-writing { right: 2em; }
   .post { width: 80ch; }
 }
 @media only screen and (min-width: 1200px) {
-  main { top: 2em; }
-  #nav-title, #nav-about, #nav-writing, #nav-projects { right: 4em; }
-  #nav-title { top: 8em; }
-  #nav-writing { top: 9.5em; }
-  #nav-about { top: 11em; }
-  #nav-projects { top: 12.5em; }
+  main { top: 5em; }
+  #nav-title, #nav-about, #nav-writing { right: 4em; }
+  #nav-title { top: 5.5em; }
+  #nav-writing { top: 7em; }
+  #nav-about { top: 8.5em; }
 }
 
 .active {
