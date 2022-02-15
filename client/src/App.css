@@ -1,3 +1,58 @@
+main {
+  margin: 0.8em;
+  position: relative;
+  top: 8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+main h2 {
+  font-size: 2em;
+}
+
+main h3 {
+  color: #C4C4C4;
+}
+
+main p {
+  text-align: justify;
+  padding-top: 0.6em;
+}
+main blockquote {
+  padding: 0 1.3em 1.3em 1.3em;
+  font-style: italic;
+  border-left: 3px solid #C4C4C4;
+}
+main code {
+  background-color: #636363;
+  color: white;
+}
+a {
+  color: #636363;
+  text-transform: uppercase;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 20%;
+  letter-spacing: 3px;
+}
+
+ul,ol {
+  padding-left: 1.3em;
+}
+
 #hero-image {
   width: 80vw;
   height: auto;
@@ -36,56 +91,11 @@
   cursor: pointer;
 }
 
-main {
-  margin: 0.8em;
-  position: relative;
-  top: 8em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-bottom: 2em;
-}
-
-main h2 {
-  font-size: 2em;
-}
-
-main h3 {
-  color: #C4C4C4;
-}
-
-main p {
-  text-align: justify;
-  padding-top: 0.6em;
-}
-main blockquote {
-  padding: 0 1.3em 1.3em 1.3em;
-  font-style: italic;
-  border-left: 3px solid #C4C4C4;
-}
-main code {
-  background-color: #636363;
-  padding: 0.8em;
+#corner {
   color: white;
-}
-a {
-  color: #636363;
-  text-transform: uppercase;
-}
-
-a:hover, a:focus {
-  text-decoration: underline;
-}
-
-footer {
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%;
-  text-align: center;
-  opacity: 20%;
-  letter-spacing: 3px;
 }
 
 .post {
@@ -99,13 +109,6 @@ footer {
 
 .about-content {
   max-width: 80ch; 
-}
-
-#corner {
-  color: white;
-  position: absolute;
-  left: 0;
-  bottom: 0;
 }
 
 @media only screen and (min-width: 600px) {
