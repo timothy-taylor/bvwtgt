@@ -101,6 +101,13 @@ footer {
   max-width: 80ch; 
 }
 
+#corner {
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
 @media only screen and (min-width: 600px) {
   main { top: 5em; }
   #nav-title, #nav-about, #nav-writing { font-size: 2.5em; }
