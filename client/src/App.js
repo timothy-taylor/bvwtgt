@@ -1,4 +1,4 @@
-import "./App.css";
+import './App.css';
 import React from "react";
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,6 +8,8 @@ import Login from "./components/Login";
 import Post from "./components/Post";
 import User from "./components/User";
 import About from "./components/About";
+import Projects from "./components/Projects";
+import Writing from "./components/Writing";
 import { isLoggedInAtom, userAtom } from "./Atoms";
 
 const App = () => {
@@ -54,7 +56,7 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Home posts={posts} />} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/user/:id" element={<User />} />
           <Route
             exact
@@ -65,6 +67,8 @@ const App = () => {
           />
           <Route exact path="/post/:id" element={<Post />} />
           <Route exact path="/about" element={<About />} />
+          <Route exact path="/projects" element={<Projects />} />
+          <Route exact path="/writing" element={<Writing posts={posts} />} />
         </Routes>
       </BrowserRouter>
     </div>

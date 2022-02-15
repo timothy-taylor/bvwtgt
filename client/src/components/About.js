@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { userAtom, isLoggedInAtom } from "../Atoms";
+import Header from "./Header";
 
 const About = () => {
   const [user] = useAtom(userAtom);
@@ -8,10 +9,14 @@ const About = () => {
 
   return (
     <>
-      <h1>Frontend leaning Fullstack developer</h1>
+    <Header active="About" />
+    <main>
+      <h2>Hi, I'm Tim.</h2>
+      <p>Frontend leaning fullstack developer</p>
       {isLoggedIn && <Link to={"/user/" + user.id}>{user.email}</Link>}
       <br />
-      <Link to="/login">Log In/out</Link>
+      {isLoggedIn && <Link to="/login">log in / log out / new post</Link>}
+    </main>
     </>
   );
 };

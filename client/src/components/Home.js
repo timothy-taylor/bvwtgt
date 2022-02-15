@@ -1,23 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import Header from "./Header";
 
-const Home = (props) => {
+const Home = () => {
   return (
     <>
-      <header></header>
+      <Header />
       <main>
-        {(props.posts || []).map((e, i) => (
-          <div key={"post" + i}>
-            <h2 key={"title" + i}>
-              <Link to={"/post/" + e.id}>{e.title}</Link>
-            </h2>
-            <p key={"content" + i}>{e.content}</p>
-          </div>
-        ))}
+        <h2>
+         Hi and welcome.
+        </h2>
       </main>
-      <footer>
-        <Link to="/about">About</Link>
-      </footer>
+      <footer></footer>
     </>
   );
 };

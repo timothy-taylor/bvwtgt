@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useAtom } from "jotai";
 import { isLoggedInAtom } from "../Atoms";
 import CSRFToken from "../Cookies";
+import Header from "./Header";
 
 const Post = () => {
   const { id } = useParams();
@@ -59,8 +60,10 @@ const Post = () => {
 
   return (
     <>
-      <p>title = {title}</p>
-      <p>content = {content}</p>
+      <Header />
+      <main>
+      <h2>{title}</h2>
+      <p>{content}</p>
       {isLoggedIn && (
         <>
           <p>post_id = {id}</p>
@@ -83,7 +86,8 @@ const Post = () => {
           </form>
         </>
       )}
-      <Link to="/">Back</Link>
+      <Link to="/writing">Back to writing</Link>
+      </main>
     </>
   );
 };

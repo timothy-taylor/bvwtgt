@@ -1,38 +1,100 @@
-.App {
+#hero-image {
+  width: 80vw;
+  height: auto;
+}
+#nav-title, #nav-about, #nav-writing, #nav-projects {
+  position: absolute;
+  right: 0.4em;
+  font-size: 2.5em;
+  border-radius: 2px;
+  transform: skew(178deg,178deg);
+  width: 345px;
+  text-transform: uppercase;
+}
+#nav-title {
+  top: 3em;
+  border: 1px solid black;
+  font-weight: normal;
   text-align: center;
+  text-transform: lowercase;
+  letter-spacing: 3px;
+}
+#nav-writing {
+  top: 4.5em;
+}
+#nav-about {
+  top: 6em;
+}
+#nav-projects {
+  top: 7.5em;
+}
+#nav-about:hover, #nav-writing:hover, #nav-projects:hover {
+  background-color: #636363;
+  color: white;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  margin: 0.8em;
+  position: relative;
+  top: 14em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+}
+
+main h2 {
+  font-size: 2em;
+}
+
+main p {
+  text-align: justify;
+}
+a {
+  color: #636363;
+  text-transform: uppercase;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+.post {
+  width: 100%;
+  margin-bottom: 1.3em;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+}
+
+#projects {
+  margin: 2em 0;
+  padding: 0.8em;
+  height: 909px;
+  width: 100%;
+  background-color: #636363;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (min-width: 600px) {
+  main { top: 6em; }
+}
+@media only screen and (min-width: 768px) {
+  main { top: 2em; }
+  .post { width: 80ch; }
+}
+@media only screen and (min-width: 1200px) {
+  main { top: 2em; }
+  #nav-title, #nav-about, #nav-writing, #nav-projects { right: 4em; }
+  #nav-title { top: 8em; }
+  #nav-writing { top: 9.5em; }
+  #nav-about { top: 11em; }
+  #nav-projects { top: 12.5em; }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.active {
+  border: 1px solid goldenrod;
+  color: goldenrod;
 }

@@ -7,4 +7,4 @@ import { atom } from "jotai";
 // using useAtom()
 
 export const isLoggedInAtom = atom(false);
-export const userAtom = atom({});t
+export const userAtom = atom({});
