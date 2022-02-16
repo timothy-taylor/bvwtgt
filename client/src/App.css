@@ -14,28 +14,40 @@ main h2 {
 }
 
 main h3 {
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 main p {
   text-align: justify;
   padding-top: 0.6em;
 }
+
 main blockquote {
   padding: 0 1.3em 1.3em 1.3em;
   font-style: italic;
-  border-left: 3px solid #C4C4C4;
+  border-left: 3px solid #c4c4c4;
 }
+
 main code {
   background-color: #636363;
   color: white;
+  font-family: monospace;
+  font-size: 1.2em;
 }
+
+pre {
+  max-width: 64ch;
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+}
+
 a {
   color: #636363;
   text-transform: uppercase;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
@@ -49,8 +61,13 @@ footer {
   letter-spacing: 3px;
 }
 
-ul,ol {
-  padding-left: 1.3em;
+ul,
+ol {
+  padding-left: 2.6em;
+}
+
+textarea {
+  width: 90%;
 }
 
 #hero-image {
@@ -58,12 +75,15 @@ ul,ol {
   height: auto;
 }
 
-#nav-title, #nav-about, #nav-writing, #nav-projects {
+#nav-title,
+#nav-about,
+#nav-writing,
+#nav-projects {
   position: absolute;
   right: 0.4em;
   font-size: 2em;
   border-radius: 2px;
-  transform: skew(178deg,178deg);
+  transform: skew(178deg, 178deg);
   width: 345px;
   text-transform: uppercase;
 }
@@ -85,7 +105,8 @@ ul,ol {
   top: 5em;
 }
 
-#nav-about:hover, #nav-writing:hover {
+#nav-about:hover,
+#nav-writing:hover {
   background-color: #636363;
   color: white;
   cursor: pointer;
@@ -108,24 +129,50 @@ ul,ol {
 }
 
 .about-content {
-  max-width: 80ch; 
+  max-width: 80ch;
 }
 
 @media only screen and (min-width: 600px) {
-  main { top: 5em; }
-  #nav-title, #nav-about, #nav-writing { font-size: 2.5em; }
+  main {
+    top: 5em;
+  }
+  #nav-title,
+  #nav-about,
+  #nav-writing {
+    font-size: 2.5em;
+  }
 }
 @media only screen and (min-width: 768px) {
-  main { top: 2em; }
-  #nav-title, #nav-about, #nav-writing { right: 2em; }
-  .post { width: 80ch; }
+  main {
+    top: 2em;
+  }
+  #nav-title,
+  #nav-about,
+  #nav-writing {
+    right: 2em;
+  }
+  .post {
+    width: 80ch;
+  }
 }
 @media only screen and (min-width: 1200px) {
-  main { top: 5em; }
-  #nav-title, #nav-about, #nav-writing { right: 4em; }
-  #nav-title { top: 5.5em; }
-  #nav-writing { top: 7em; }
-  #nav-about { top: 8.5em; }
+  main {
+    top: 5em;
+  }
+  #nav-title,
+  #nav-about,
+  #nav-writing {
+    right: 4em;
+  }
+  #nav-title {
+    top: 5.5em;
+  }
+  #nav-writing {
+    top: 7em;
+  }
+  #nav-about {
+    top: 8.5em;
+  }
 }
 
 .active {
