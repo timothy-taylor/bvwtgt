@@ -29,14 +29,12 @@ main blockquote {
 }
 
 main code {
-  background-color: #636363;
   color: white;
-  font-family: monospace;
-  font-size: 1.2em;
 }
 
 pre {
-  max-width: 64ch;
+  background-color: #636363;
+  max-width: 80%;
   -webkit-overflow-scrolling: touch;
   overflow: scroll;
 }
