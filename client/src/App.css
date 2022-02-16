@@ -26,6 +26,7 @@ main blockquote {
   padding: 0 1.3em 1.3em 1.3em;
   border-left: 3px solid #c4c4c4;
   color: #636363;
+  text-align: left;
 }
 
 a {
