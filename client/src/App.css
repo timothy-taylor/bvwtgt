@@ -24,19 +24,8 @@ main p {
 
 main blockquote {
   padding: 0 1.3em 1.3em 1.3em;
-  font-style: italic;
   border-left: 3px solid #c4c4c4;
-}
-
-main code {
-  color: white;
-}
-
-pre {
-  background-color: #636363;
-  max-width: 80%;
-  -webkit-overflow-scrolling: touch;
-  overflow: scroll;
+  color: #636363;
 }
 
 a {
