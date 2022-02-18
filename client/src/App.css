@@ -34,6 +34,7 @@ pre {
   margin-left: auto;
   margin-top: 0.8em;
   max-width: calc(100vw - 3em);
+  max-height: 62ch;
   background-color: #636363;
   overflow: auto;
 }
@@ -41,8 +42,6 @@ pre {
 code {
   background-color: #636363;
   color: white;
-  font-family: monospace;
-  font-size: 1.5em;
 }
 
 a {
@@ -67,6 +66,7 @@ footer {
 
 ul,
 ol {
+  font-size: 1.2em;
   padding-left: 2.6em;
 }
 
