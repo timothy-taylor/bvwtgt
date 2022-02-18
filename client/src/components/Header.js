@@ -22,9 +22,12 @@ const Header = (props) => {
   }, []);
 
   return (
-    <header>
-      <img src={hero} alt="" id="hero-image" />
-      <nav>
+    <>
+      <a id="skip-nav" class="screenreader-text" href="#main-content">
+        Skip to Content
+      </a>
+      <header>
+        <img src={hero} alt="" id="hero-image" />
         <h1
           id="nav-title"
           onMouseEnter={() => setTitle("Tim Taylor")}
@@ -32,6 +35,8 @@ const Header = (props) => {
         >
           {title}
         </h1>
+      </header>
+      <nav>
         <Link to="/writing">
           <button id="nav-writing">Writing</button>
         </Link>
@@ -39,7 +44,7 @@ const Header = (props) => {
           <button id="nav-about">About</button>
         </Link>
       </nav>
-    </header>
+    </>
   );
 };
 

@@ -6,21 +6,20 @@ import Footer from "./Footer";
 marked.setOptions({ breaks: true });
 
 const Writing = (props) => {
-
   return (
     <>
     <Header active="Writing" />
-    <main>
+    <main id="main-content">
         {(props.posts || []).map((e, i) => (
-          <div key={"post" + i} class="post">
+          <article key={"post" + i} class="post">
             <h2 key={"title" + i}>
               <Link to={"/post/" + e.id}>{e.title}</Link>
             </h2>
             <h3 key={"subtitle" + i}>
-              Last updated {e.updated_at}
+              {e.created_at}
             </h3>
             <div key={"content" + i} dangerouslySetInnerHTML={{__html: marked.parse(e.content)}} />
-          </div>
+          </article>
         ))}
     </main>
       <Footer />

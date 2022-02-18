@@ -65,32 +65,37 @@ const Post = () => {
       <Header />
       <main>
         <div class="post">
-      <h2>{title}</h2>
-      <p dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+          <h2>{title}</h2>
+          <p dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
         </div>
-      {isLoggedIn && (
-        <>
-          <p>post_id = {id}</p>
-          <p>tag_id = {tag}</p>
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <input
-              placeholder="title"
-              type="text"
-              value={title}
-              onChange={(e) => handleTitleChange(e)}
-            />
-            <br />
-            <textarea
-              placeholder="content"
-              value={content}
-              onChange={(e) => handleContentChange(e)}
-            />
-            <br />
-            <button type="submit">Save Changes</button>
-          </form>
-        </>
-      )}
-      <Link to="/writing">Back to writing</Link>
+        {isLoggedIn && (
+          <>
+            <p>post_id = {id}</p>
+            <p>tag_id = {tag}</p>
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <input
+                placeholder="title"
+                type="text"
+                value={title}
+                onChange={(e) => handleTitleChange(e)}
+              />
+              <br />
+              <textarea
+                placeholder="content"
+                value={content}
+                onChange={(e) => handleContentChange(e)}
+              />
+              <br />
+              <button
+                type="submit"
+                onClick={(e) => (e.currentTarget.style.borderColor = "green")}
+              >
+                Save Changes
+              </button>
+            </form>
+          </>
+        )}
+        <Link to="/writing">Back to writing</Link>
       </main>
       <Footer />
     </>

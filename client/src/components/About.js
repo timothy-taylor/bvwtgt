@@ -11,7 +11,7 @@ const About = () => {
   return (
     <>
       <Header active="About" />
-      <main>
+      <main id="main-content">
         <h2>Hi, I'm Tim.</h2>
         <h3>
           Software Developer | Frontend + Fullstack | Javascript, HTML5, CSS3, React, Ruby on Rails
