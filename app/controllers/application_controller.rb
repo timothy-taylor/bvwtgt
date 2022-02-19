@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   private
   def require_login
-    render :nothing unless logged_in?
+    render :text => "Not logged in", :status => 401 unless logged_in?
   end
 
   def set_csrf_cookie

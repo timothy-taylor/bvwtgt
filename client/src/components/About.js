@@ -17,7 +17,7 @@ const About = () => {
           Software Developer | Frontend + Fullstack | Javascript, HTML5, CSS3, React, Ruby on Rails
         </h3>
         <p class="about-content">
-I'm a software developer using mostly Javascript and Ruby. I appreciate good UI, responsive designs, well-structured code, and git. I am a team player with a documented knack for going 0 to 60 in new opportunities who loves to work on interesting projects of all kinds.
+I'm a person, musician, and software developer using mostly Javascript and Ruby (and messing around with Lua, Rust, C/C++). I appreciate good UI, responsive designs, well-structured code, and git. I am a team player with a documented knack for staying cool under fire and for going 0 to 60 in new opportunities who loves to work on interesting projects of all kinds.
         </p>
         <p class="about-content">
 Using my experience as a luthier and instrument designer I treat my process of building software as building an instrument: something that is both simple & easily discoverable yet rewards deeper interaction & study. In my free time I enjoy coding musical controllers/interfaces for both the browser and various hardware devices.
