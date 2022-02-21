@@ -6,17 +6,16 @@ import CSRFToken from "../Cookies";
 
 const NewPost = () => {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
-  const [tag, setTag] = React.useState("");
   const [tags, setTags] = React.useState([]);
+  const [post, setPost] = React.useState({
+    title: "",
+    content: "",
+    tag: "",
+  });
 
-  const handleTitleChange = (e) => setTitle(e.target.value);
-  const handleContentChange = (e) => setContent(e.target.value);
-  const handleTagChange = (e) => {
-    const [id] = e.target.value.split(":");
-    setTag(id);
-  };
+  const updatePost = (value) => setPost((prev) => {
+    return { ...prev, ...value }; 
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,9 +24,9 @@ const NewPost = () => {
         "/api/posts",
         {
           post: {
-            title: title,
-            content: content,
-            tag_id: tag,
+            title: post.title,
+            content: post.content,
+            tag_id: post.tag,
           },
         },
         {
@@ -40,9 +39,11 @@ const NewPost = () => {
       )
       .then((response) => {
         if (response.status === 201) {
-          setTitle("");
-          setContent("");
-          setTag("");
+          setPost({
+            title: "",
+            content: "",
+            tag: "",
+          })
         } else {
           console.log(response.status);
         }
@@ -64,14 +65,14 @@ const NewPost = () => {
           <input
             placeholder="title"
             type="text"
-            value={title}
-            onChange={(e) => handleTitleChange(e)}
+            value={post.title}
+            onChange={(e) => updatePost({title: e.target.value})}
           />
           <br />
           <textarea
             placeholder="content"
-            value={content}
-            onChange={(e) => handleContentChange(e)}
+            value={post.content}
+            onChange={(e) => updatePost({content: e.target.value})}
           />
           <br />
           <label htmlFor="tag-list">Tags</label>
@@ -79,7 +80,7 @@ const NewPost = () => {
             name="tag-list"
             type="text"
             list="tags"
-            onChange={(e) => handleTagChange(e)}
+            onChange={(e) => updatePost({tag: e.target.value.split(":")[0]})}
           />
           <datalist id="tags">
             {tags.map((e) => (

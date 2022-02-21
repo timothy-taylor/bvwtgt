@@ -1,22 +1,27 @@
 import React from "react";
 import axios from "axios";
+import { marked } from "marked";
 import { Link, useParams } from "react-router-dom";
 import { useAtom } from "jotai";
 import { isLoggedInAtom } from "../Atoms";
 import CSRFToken from "../Cookies";
 import Header from "./Header";
 import Footer from "./Footer";
-import { marked } from "marked";
+import DisplayPost from "./DisplayPost";
 
 const Post = () => {
   const { id } = useParams();
   const [isLoggedIn] = useAtom(isLoggedInAtom);
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
-  const [tag, setTag] = React.useState("");
+  const [post, setPost] = React.useState({
+    title: "",
+    content: "",
+    tag: "",
+  });
 
-  const handleTitleChange = (e) => setTitle(e.target.value);
-  const handleContentChange = (e) => setContent(e.target.value);
+  const updatePost = (value) => setPost((prev) => {
+    return { ...prev, ...value }; 
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -24,9 +29,9 @@ const Post = () => {
         "/api/posts/" + id,
         {
           post: {
-            title: title,
-            content: content,
-            tag_id: tag,
+            title: post.title,
+            content: post.content,
+            tag_id: post.tag,
           },
         },
         {
@@ -53,37 +58,37 @@ const Post = () => {
         id: id,
       })
       .then((response) => {
-        setTitle(response.data.title);
-        setContent(response.data.content);
-        setTag(response.data.tag_id);
+        setPost({
+          title: response.data.title,
+          content: response.data.content,
+          tag: response.data.tag_id,
+        });
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
+ 
   return (
     <>
       <Header />
       <main>
-        <div class="post">
-          <h2>{title}</h2>
-          <p dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
-        </div>
+        <DisplayPost title={post.title} markdown={marked.parse(post.content)} />
         {isLoggedIn && (
           <>
             <p>post_id = {id}</p>
-            <p>tag_id = {tag}</p>
+            <p>tag_id = {post.tag}</p>
             <form onSubmit={(e) => handleSubmit(e)}>
               <input
                 placeholder="title"
                 type="text"
-                value={title}
-                onChange={(e) => handleTitleChange(e)}
+                value={post.title}
+                onChange={(e) => updatePost({title: e.target.value})}
               />
               <br />
               <textarea
                 placeholder="content"
-                value={content}
-                onChange={(e) => handleContentChange(e)}
+                value={post.content}
+                onChange={(e) => updatePost({content: e.target.value})}
               />
               <br />
               <button
