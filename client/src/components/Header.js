@@ -23,7 +23,7 @@ const Header = (props) => {
 
   return (
     <>
-      <a id="skip-nav" class="screenreader-text" href="#main-content">
+      <a id="skip-nav" className="screenreader-text" href="#main-content">
         Skip to Content
       </a>
       <header>

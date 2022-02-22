@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :require_login
   after_action :set_csrf_cookie
 
   helper_method :login!,
@@ -8,7 +7,8 @@ class ApplicationController < ActionController::Base
                 :current_user,
                 :authorized_user?,
                 :logout!,
-                :set_user
+                :set_user,
+                :fallback_index_html
 
   def login!
     session[:user_id] = @user.id

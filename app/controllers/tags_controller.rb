@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
+  before_action :require_login, except: [:index, :show]
 
   # GET /tags
   def index

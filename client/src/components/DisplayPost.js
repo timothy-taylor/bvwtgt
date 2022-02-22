@@ -7,7 +7,7 @@ const DisplayPost = (props) => {
   },[props.markdown])
 
   return (
-    <article class="post">
+    <article className="post">
       <h2>{props.title}</h2>
       <p id="markdown" />
     </article>

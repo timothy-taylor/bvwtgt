@@ -11,7 +11,7 @@ const Writing = (props) => {
     <Header active="Writing" />
     <main id="main-content">
         {(props.posts || []).map((e, i) => (
-          <article key={"post" + i} class="post">
+          <article key={"post" + i} className="post">
             <h2 key={"title" + i}>
               <Link to={"/post/" + e.id}>{e.title}</Link>
             </h2>
