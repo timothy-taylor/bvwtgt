@@ -8,24 +8,20 @@ marked.setOptions({ breaks: true });
 const Writing = (props) => {
   return (
     <>
-    <Header active="Writing" />
-    <main id="main-content">
+      <Header active="Writing" />
+      <main id="main-content">
         {(props.posts || []).map((e, i) => (
           <article key={"post" + i} className="post">
             <h2 key={"title" + i}>
               <Link to={"/post/" + e.id}>{e.title}</Link>
             </h2>
-            <h3 key={"subtitle" + i}>
-              {e.created_at}
-            </h3>
-            <div key={"content" + i} dangerouslySetInnerHTML={{__html: marked.parse(e.content)}} />
+            <h3 key={"subtitle" + i}>{e.created_at}</h3>
           </article>
         ))}
-    </main>
+      </main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Writing;
-

@@ -29,13 +29,13 @@ const About = () => {
         </p>
         <p className="about-content">
           Using my experience as a luthier and instrument designer I treat my
-          process of design and building software as building an instrument:
-          something that is both simple & easily discoverable yet rewards deeper
-          interaction & study. In my free time I enjoy coding musical
-          controllers & interfaces for both the browser and various hardware
+          process of creating software as the building of an instrument: making
+          something that is both simple and easily discoverable yet rewards
+          deeper interaction and study. In my free time I enjoy coding musical
+          controllers and interfaces for both the browser and various hardware
           devices.
         </p>
-        <p className="about-content">
+        <div className="about-content">
           <em>My other interests include:</em>
           <ul>
             <li>
@@ -65,13 +65,13 @@ const About = () => {
                 <li>enjoying matcha</li>
                 <li>watching the Boston Celtics</li>
                 <li>making music</li>
-                <li>daily workouts</li>
+                <li>morning workouts</li>
                 <li>laughing with Chris Farley</li>
                 <li>balancing free improvisation with intentionality</li>
               </ul>
             </li>
           </ul>
-        </p>
+        </div>
         <br />
         <p>contact @ tim [at] bvwtgt [dot] xyz</p>
         <a href="https://www.linkedin.com/in/timothy-g-taylor">LinkedIn</a>

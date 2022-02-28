@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.select(:id, :title, :created_at).order(created_at: :desc)
 
     render json: @posts
   end
