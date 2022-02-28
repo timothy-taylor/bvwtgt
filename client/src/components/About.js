@@ -18,10 +18,9 @@ const About = () => {
           React, Ruby on Rails
         </h3>
         <p className="about-content">
-          I'm a person, musician, and software developer using mostly Javascript
-          and Ruby (with a bit exploring with Lua, Rust, C/C++). I appreciate
-          good UI, responsive designs, well-structured code, and git version
-          control.
+          I'm a software developer using mostly Javascript and Ruby (with a bit
+          exploring with Lua, Rust, C/C++). I appreciate good UI, responsive
+          designs, well-structured code, and git version control.
         </p>
         <p className="about-content">
           I'm also a person, musician, and a team player with a knack for
@@ -30,10 +29,11 @@ const About = () => {
         </p>
         <p className="about-content">
           Using my experience as a luthier and instrument designer I treat my
-          process of design and building software as building an instrument: something that
-          is both simple & easily discoverable yet rewards deeper interaction &
-          study. In my free time I enjoy coding musical controllers & interfaces
-          for both the browser and various hardware devices.
+          process of design and building software as building an instrument:
+          something that is both simple & easily discoverable yet rewards deeper
+          interaction & study. In my free time I enjoy coding musical
+          controllers & interfaces for both the browser and various hardware
+          devices.
         </p>
         <p className="about-content">
           <em>My other interests include:</em>
@@ -76,6 +76,10 @@ const About = () => {
         <p>contact @ tim [at] bvwtgt [dot] xyz</p>
         <a href="https://www.linkedin.com/in/timothy-g-taylor">LinkedIn</a>
         <a href="https://github.com/timothy-taylor">Github</a>
+        <a href="https://tgtmusic.bandcamp.com/">Bandcamp</a>
+        <a href="https://open.spotify.com/artist/5pJDAJfpQWFQJVOB16Gx70?si=XUQiPH22QduDUyMmuIjV6g">
+          Spotify
+        </a>
         <br />
         {isLoggedIn && (
           <Link to={"/user/" + user.id}>hi tim / new post / log out / etc</Link>
