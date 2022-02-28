@@ -10,11 +10,12 @@ import User from "./components/User";
 import About from "./components/About";
 import Writing from "./components/Writing";
 import NotFound from "./NotFound";
-import { isLoggedInAtom, userAtom } from "./Atoms";
+import { isLoggedInAtom, userAtom, themeAtom } from "./Atoms";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
   const [user, setUser] = useAtom(userAtom);
+  const [theme, setTheme] = useAtom(themeAtom);
   const [posts, setPosts] = React.useState([]);
 
   const handleLogin = (data) => {
@@ -51,6 +52,15 @@ const App = () => {
     getPosts();
     loginStatus();
   }, []);
+
+  React.useEffect(() => {
+    if (theme === "light") {
+      document.body.classList.remove("dark-theme");
+    } else if (theme === "dark") {
+      document.body.classList.add("dark-theme");
+    }
+  }, [theme]);
+
 
   return (
     <div className="App">

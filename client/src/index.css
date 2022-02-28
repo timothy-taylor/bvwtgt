@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
 
 * {
   margin: 0;
@@ -6,12 +6,42 @@
   font-size: 100%;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Sen', sans-serif;
+  font-family: "Sen", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+body {
+  --text-color: black;
+  --bkg-color: white;
+  --light-color: #c4c4c4;
+  --dark-color: #636363;
+}
+body.dark-theme {
+  --text-color: white;
+  --bkg-color: #211A1D;
+  --light-color: #636363;
+  --dark-color: #c4c4c4;
+}
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+body {
+  background-color: var(--bkg-color);
+  color: var(--text-color);
+}
+.screenreader-text {
+  position: absolute;
+  left: -999px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+}
+.screenreader-text:focus {
+  color: black;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  position: static;
+  margin: auto;
 }

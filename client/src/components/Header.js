@@ -1,9 +1,17 @@
 import React from "react";
+import { useAtom } from "jotai";
 import { Link } from "react-router-dom";
 import hero from "../assets/hero.svg";
+import { Light, Dark } from "../assets/Icons";
+import { themeAtom } from "../Atoms";
+
 
 const Header = (props) => {
   const [title, setTitle] = React.useState("BVWTGT");
+  const [theme, setTheme] = useAtom(themeAtom);
+  const toggleTheme = () => setTheme((prev) => {
+    return prev === "light" ? "dark" : "light"
+  })
 
   React.useEffect(() => {
     const writing = document.getElementById("nav-writing");
@@ -28,6 +36,8 @@ const Header = (props) => {
       </a>
       <header>
         <img src={hero} alt="" id="hero-image" />
+        {theme === "light" && <Light handleClick={toggleTheme} />}
+        {theme === "dark" && <Dark handleClick={toggleTheme} />}
         <h1
           id="nav-title"
           onMouseEnter={() => setTitle("Tim Taylor")}

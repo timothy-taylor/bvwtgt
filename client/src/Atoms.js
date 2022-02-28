@@ -8,3 +8,4 @@ import { atom } from "jotai";
 
 export const isLoggedInAtom = atom(false);
 export const userAtom = atom({});
+export const themeAtom = atom("light")
