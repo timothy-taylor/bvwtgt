@@ -7,7 +7,7 @@ import CSRFToken from "../Cookies";
 import NewPost from "./NewPost";
 import NewTag from "./NewTag";
 
-const Login = (props) => {
+const Login = ({handleLogin, handleLogout}) => {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -29,7 +29,7 @@ const Login = (props) => {
       )
       .then((response) => {
         if (response.data.logged_out) {
-          props.handleLogout();
+          handleLogout();
         }
       })
       .catch((error) => console.log("api errors:", error));
@@ -56,7 +56,7 @@ const Login = (props) => {
       )
       .then((response) => {
         if (response.data.logged_in) {
-          props.handleLogin(response.data);
+          handleLogin(response.data);
         } else {
           setErrors(response.data.errors);
         }

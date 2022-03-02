@@ -19,11 +19,11 @@ const About = () => {
         </h3>
         <p className="about-content">
           I'm a software developer using mostly Javascript and Ruby (with a bit
-          exploring with Lua, Rust, C/C++). I appreciate good UI, responsive
-          designs, well-structured code, and git version control.
+          exploring with Lua, Rust, C/C++). I care about accessibility, good UI, and responsive
+          designs.
         </p>
         <p className="about-content">
-          I'm also a person, musician, and a team player with a knack for
+          I'm also a person, musician, and a team player (bandmate?) with a knack for
           staying cool under fire who loves to work on interesting projects of
           all kinds.
         </p>
@@ -51,12 +51,14 @@ const About = () => {
             <li>
               Meditating on:
               <ul>
+                <li>carving out space to live and have a sustainable career as an agoraphobic</li>
                 <li>Andrei Tarkovsky films</li>
                 <li>Rilke, Hesse, Nabakov, Camus, etc</li>
                 <li>Bauhausian modernism</li>
                 <li>Camusian restraint as rebellion minimalism</li>
                 <li>iterative processes and generative patterns</li>
-                <li>the grounding rhymths of the universe</li>
+                <li>grounding rhymth</li>
+                <li>I Ching</li>
               </ul>
             </li>
             <li>

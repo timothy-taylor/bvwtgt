@@ -17,6 +17,7 @@ const App = () => {
   const [user, setUser] = useAtom(userAtom);
   const [theme, setTheme] = useAtom(themeAtom);
   const [posts, setPosts] = React.useState([]);
+  const timeoutAxios = axios.create({ timeout: 1000 });
 
   const handleLogin = (data) => {
     setIsLoggedIn(true);
@@ -29,7 +30,7 @@ const App = () => {
   };
 
   const loginStatus = () => {
-    axios
+    timeoutAxios
       .get("/api/logged_in", { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in) {
@@ -42,7 +43,7 @@ const App = () => {
   };
 
   const getPosts = () => {
-    axios
+    timeoutAxios
       .get("/api/posts")
       .then((response) => setPosts(response.data))
       .catch((error) => console.log(error));
@@ -60,7 +61,6 @@ const App = () => {
       document.body.classList.add("dark-theme");
     }
   }, [theme]);
-
 
   return (
     <div className="App">

@@ -5,12 +5,12 @@ import Footer from "./Footer";
 
 marked.setOptions({ breaks: true });
 
-const Writing = (props) => {
+const Writing = ({posts}) => {
   return (
     <>
       <Header active="Writing" />
       <main id="main-content">
-        {(props.posts || []).map((e, i) => (
+        {(posts || []).map((e, i) => (
           <article key={"post" + i} className="post">
             <h2 key={"title" + i}>
               <Link to={"/post/" + e.id}>{e.title}</Link>

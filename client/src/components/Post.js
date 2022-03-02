@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import DisplayPost from "./DisplayPost";
 
 const Post = () => {
+  const timeoutAxios = axios.create({ timeout: 1000 });
   const { id } = useParams();
   const [isLoggedIn] = useAtom(isLoggedInAtom);
   const [post, setPost] = React.useState({
@@ -18,13 +19,14 @@ const Post = () => {
     tag: "",
   });
 
-  const updatePost = (value) => setPost((prev) => {
-    return { ...prev, ...value }; 
-  });
+  const updatePost = (value) =>
+    setPost((prev) => {
+      return { ...prev, ...value };
+    });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
+    timeoutAxios
       .patch(
         "/api/posts/" + id,
         {
@@ -53,7 +55,7 @@ const Post = () => {
   };
 
   React.useEffect(() => {
-    axios
+    timeoutAxios
       .get("/api/posts/" + id, {
         id: id,
       })
@@ -67,7 +69,6 @@ const Post = () => {
       .catch((error) => console.log(error));
   }, [id]);
 
- 
   return (
     <>
       <Header />
@@ -82,13 +83,13 @@ const Post = () => {
                 placeholder="title"
                 type="text"
                 value={post.title}
-                onChange={(e) => updatePost({title: e.target.value})}
+                onChange={(e) => updatePost({ title: e.target.value })}
               />
               <br />
               <textarea
                 placeholder="content"
                 value={post.content}
-                onChange={(e) => updatePost({content: e.target.value})}
+                onChange={(e) => updatePost({ content: e.target.value })}
               />
               <br />
               <button
