@@ -1,8 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { useAtom } from "jotai";
 import { isLoggedInAtom } from "../Atoms";
-import CSRFToken from "../Cookies";
+import PostAPI from "../api/post";
 
 const NewPost = () => {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
@@ -13,49 +12,32 @@ const NewPost = () => {
     tag: "",
   });
 
-  const updatePost = (value) => setPost((prev) => {
-    return { ...prev, ...value }; 
-  });
+  const updatePost = (value) =>
+    setPost((prev) => {
+      return { ...prev, ...value };
+    });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "/api/posts",
-        {
-          post: {
-            title: post.title,
-            content: post.content,
-            tag_id: post.tag,
-          },
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": CSRFToken(document.cookie),
-          },
-        },
-        { withCredentials: true }
-      )
-      .then((response) => {
-        if (response.status === 201) {
-          setPost({
-            title: "",
-            content: "",
-            tag: "",
-          })
-        } else {
-          console.log(response.status);
-        }
-      })
-      .catch((error) => console.log("api errors:", error));
+    const status = await PostAPI.createPost(post);
+    if (status === 201) {
+      setPost({
+        title: "",
+        content: "",
+        tag: "",
+      });
+    } else {
+      console.log(status);
+    }
+  };
+
+  const getAndSetTags = async () => {
+    const data = await PostAPI.getTags();
+    setTags(data);
   };
 
   React.useEffect(() => {
-    axios
-      .get("/api/tags")
-      .then((response) => setTags(response.data))
-      .catch((error) => console.log(error));
+    getAndSetTags();
   }, []);
 
   return (
@@ -66,13 +48,13 @@ const NewPost = () => {
             placeholder="title"
             type="text"
             value={post.title}
-            onChange={(e) => updatePost({title: e.target.value})}
+            onChange={(e) => updatePost({ title: e.target.value })}
           />
           <br />
           <textarea
             placeholder="content"
             value={post.content}
-            onChange={(e) => updatePost({content: e.target.value})}
+            onChange={(e) => updatePost({ content: e.target.value })}
           />
           <br />
           <label htmlFor="tag-list">Tags</label>
@@ -80,7 +62,7 @@ const NewPost = () => {
             name="tag-list"
             type="text"
             list="tags"
-            onChange={(e) => updatePost({tag: e.target.value.split(":")[0]})}
+            onChange={(e) => updatePost({ tag: e.target.value.split(":")[0] })}
           />
           <datalist id="tags">
             {tags.map((e) => (

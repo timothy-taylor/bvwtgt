@@ -1,67 +1,39 @@
 import React from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { isLoggedInAtom } from "../Atoms";
-import CSRFToken from "../Cookies";
 import NewPost from "./NewPost";
 import NewTag from "./NewTag";
+import UserAPI from "../api/user";
 
-const Login = ({handleLogin, handleLogout}) => {
+const Login = ({ handleLogin, handleLogout }) => {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
   const [errors, setErrors] = React.useState([]);
+  const [credentials, setCredentials] = React.useState({
+    email: "",
+    password: "",
+  });
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleClick = () => {
-    axios
-      .delete(
-        "/api/logout",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": CSRFToken(document.cookie),
-          },
-        },
-        { withCredentials: true }
-      )
-      .then((response) => {
-        if (response.data.logged_out) {
-          handleLogout();
-        }
-      })
-      .catch((error) => console.log("api errors:", error));
+  const updateCredentials = (value) =>
+    setCredentials((prev) => {
+      return { ...prev, ...value };
+    });
+
+  const handleClick = async () => {
+    const data = await UserAPI.logout();
+    if (data.logged_out) {
+      handleLogout();
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "/api/login",
-        {
-          user: {
-            email: email,
-            password: password,
-          },
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": CSRFToken(document.cookie),
-          },
-        },
-        { withCredentials: true }
-      )
-      .then((response) => {
-        if (response.data.logged_in) {
-          handleLogin(response.data);
-        } else {
-          setErrors(response.data.errors);
-        }
-      })
-      .catch((error) => console.log("api errors:", error));
+    const data = await UserAPI.login(credentials.email, credentials.password);
+    if (data.logged_in) {
+      handleLogin(data.user);
+    } else {
+      setErrors(data.errors);
+    }
   };
 
   return (
@@ -80,14 +52,14 @@ const Login = ({handleLogin, handleLogout}) => {
             <input
               placeholder="email"
               type="email"
-              value={email}
-              onChange={(e) => handleEmailChange(e)}
+              value={credentials.email}
+              onChange={(e) => updateCredentials({ email: e.target.value })}
             />
             <input
               placeholder="password"
               type="password"
-              value={password}
-              onChange={(e) => handlePasswordChange(e)}
+              value={credentials.password}
+              onChange={(e) => updateCredentials({ password: e.target.value })}
             />
             <button placeholder="submit" type="submit">
               Log In

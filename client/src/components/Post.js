@@ -22,18 +22,25 @@ const Post = () => {
       return { ...prev, ...value };
     });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    PostAPI.createPost(post, id);
+    const status = await PostAPI.updatePost(post, id);
+    if (status !== 201) {
+      console.log(status);
+    }
   };
 
   React.useEffect(() => {
-    const data = PostAPI.getPost(id);
-    setPost({
-      title: data.title,
-      content: data.content,
-      tag: data.tag_id,
-    });
+    const getAndSetPosts = async () => {
+      const data = await PostAPI.getPost(id);
+      setPost({
+        title: data.title,
+        content: data.content,
+        tag: data.tag_id,
+      });
+    };
+
+    getAndSetPosts();
   }, [id]);
 
   return (

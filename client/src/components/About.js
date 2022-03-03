@@ -1,16 +1,8 @@
-import { Link } from "react-router-dom";
-import { useAtom } from "jotai";
-import { userAtom, isLoggedInAtom } from "../Atoms";
-import Header from "./Header";
-import Footer from "./Footer";
+import Layout from "./Layout";
 
 const About = () => {
-  const [user] = useAtom(userAtom);
-  const [isLoggedIn] = useAtom(isLoggedInAtom);
-
   return (
-    <>
-      <Header active="About" />
+    <Layout active="About">
       <main id="main-content">
         <h2>Hi, I'm Tim.</h2>
         <h3>
@@ -19,13 +11,13 @@ const About = () => {
         </h3>
         <p className="about-content">
           I'm a software developer using mostly Javascript and Ruby (with a bit
-          exploring with Lua, Rust, C/C++). I care about accessibility, good UI, and responsive
-          designs.
+          exploring with Lua, Rust, C/C++). I care about accessibility, good UI,
+          and responsive designs.
         </p>
         <p className="about-content">
-          I'm also a person, musician, and a team player (bandmate?) with a knack for
-          staying cool under fire who loves to work on interesting projects of
-          all kinds.
+          I'm also a person, musician, and a team player (bandmate?) with a
+          knack for staying cool under fire who loves to work on interesting
+          projects of all kinds.
         </p>
         <p className="about-content">
           Using my experience as a luthier and instrument designer I treat my
@@ -51,7 +43,10 @@ const About = () => {
             <li>
               Meditating on:
               <ul>
-                <li>carving out space to live and have a sustainable career as an agoraphobic</li>
+                <li>
+                  carving out space to live and have a sustainable career as an
+                  agoraphobic
+                </li>
                 <li>Andrei Tarkovsky films</li>
                 <li>Rilke, Hesse, Nabakov, Camus, etc</li>
                 <li>Bauhausian modernism</li>
@@ -82,13 +77,8 @@ const About = () => {
         <a href="https://open.spotify.com/artist/5pJDAJfpQWFQJVOB16Gx70?si=XUQiPH22QduDUyMmuIjV6g">
           Spotify
         </a>
-        <br />
-        {isLoggedIn && (
-          <Link to={"/user/" + user.id}>hi tim / new post / log out / etc</Link>
-        )}
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

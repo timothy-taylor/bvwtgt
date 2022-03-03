@@ -1,9 +1,7 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Layout from "./Layout";
 
 const Home = () => (
-  <>
-    <Header />
+  <Layout>
     <main>
       <h2>Hi and welcome.</h2>
       <p className="about-content">
@@ -13,8 +11,7 @@ const Home = () => (
         progress.
       </p>
     </main>
-    <Footer />
-  </>
+  </Layout>
 );
 
 export default Home;

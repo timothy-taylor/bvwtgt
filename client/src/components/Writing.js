@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { marked } from "marked";
-import Header from "./Header";
-import Footer from "./Footer";
+import Layout from "./Layout";
 
 marked.setOptions({ breaks: true });
 
-const Writing = ({posts}) => {
+const Writing = ({ posts }) => {
   return (
-    <>
-      <Header active="Writing" />
+    <Layout active="Writing">
       <main id="main-content">
         {(posts || []).map((e, i) => (
           <article key={"post" + i} className="post">
@@ -19,8 +17,7 @@ const Writing = ({posts}) => {
           </article>
         ))}
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

@@ -17,9 +17,12 @@ import UserAPI from "./api/user";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
-  const [user, setUser] = useAtom(userAtom);
+  // Atoms are global state
+  const [setIsLoggedIn] = useAtom(isLoggedInAtom).reverse();
+  const [setUser] = useAtom(userAtom).reverse();
   const [theme] = useAtom(themeAtom);
+
+  // grabbing the post titles ahead of time
   const [posts, setPosts] = React.useState([]);
 
   const handleLogin = (data) => {
@@ -33,17 +36,6 @@ const App = () => {
   };
 
   React.useEffect(() => {
-    setPosts(PostAPI.getPosts());
-
-    const status = UserAPI.loginStatus();
-    if (status.logged_in) {
-      handleLogin(status)
-    } else {
-      handleLogout();
-    }
-  }, []);
-
-  React.useEffect(() => {
     if (theme === "light") {
       document.body.classList.remove("dark-theme");
     } else if (theme === "dark") {
@@ -51,11 +43,26 @@ const App = () => {
     }
   }, [theme]);
 
+  React.useEffect(() => {
+    const handleFetches = async () => {
+      const dataUser = await UserAPI.loginStatus();
+      const dataPosts = await PostAPI.getPosts();
+      setPosts(dataPosts);
+      if (dataUser.logged_in) {
+        handleLogin(dataUser);
+      } else {
+        handleLogout();
+      }
+    };
+
+    handleFetches();
+  }, []);
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/user/:id" element={<User />} />
             <Route
@@ -69,9 +76,9 @@ const App = () => {
             <Route exact path="/post/:id" element={<Post />} />
             <Route exact path="/writing" element={<Writing posts={posts} />} />
             <Route path="*" element={<NotFound />} />
-          </QueryClientProvider>
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const Header = (props) => {
         break;
       default:
     }
-  }, []);
+  }, [props.active]);
 
   return (
     <>
