@@ -1,14 +1,6 @@
 import { timeoutAxios } from "./axiosInstances";
 import CSRFToken from "../Cookies";
 
-// recommended usage:
-//
-// import PostAPI from <this file>;
-//
-// const data = await PostAPI.getPosts();
-// or
-// const status = await PostAPI.createPost(post);
-//
 const PostServices = {
 
   getPosts: () =>

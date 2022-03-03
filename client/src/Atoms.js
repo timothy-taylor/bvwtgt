@@ -7,5 +7,5 @@ import { atom } from "jotai";
 // using useAtom()
 
 export const isLoggedInAtom = atom(false);
-export const userAtom = atom({});
+export const userAtom = atom(null);
 export const themeAtom = atom("light")
