@@ -1,21 +1,18 @@
 class TagsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: %i[index show]
 
-  # GET /tags
   def index
     @tags = Tag.all
 
     render json: @tags
   end
 
-  # GET /tag/:id
   def show
     @posts = Post.where(tag_id: params[:id])
 
     render json: @posts
   end
 
-  # POST /tags
   def create
     @tag = Tag.new(tag_params)
 

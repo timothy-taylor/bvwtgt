@@ -1,23 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
-  before_action :require_login, except: [:show]
+  before_action :set_user, only: %i[show update destroy]
+  before_action :require_login
 
-  # GET /users
   def index
-    @users = User.all.pluck(:id,:email)
+    @users = User.all.pluck(:id, :email)
 
     render json: @users
   end
 
-  # GET /users/1
   def show
-    @user = User.find(params[:id]).pluck(:id,:email)
+    @user = User.find(params[:id]).pluck(:id, :email)
     render json: @user
   end
 
-  # PATCH/PUT /users/1
   def update
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
     if @user.update(user_params)
       render json: @user
     else
@@ -25,15 +22,14 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
   def destroy
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
   end
 
   private
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

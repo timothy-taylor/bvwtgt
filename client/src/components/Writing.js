@@ -9,7 +9,7 @@ marked.setOptions({ breaks: true });
 const usePosts = () => useQuery('posts', PostAPI.getPosts);
 
 const Writing = () => {
-  const { status, data, error, isFetching } = usePosts();
+  const { status, data, error } = usePosts();
 
   return (
     <Layout active="Writing">
@@ -30,7 +30,6 @@ const Writing = () => {
         ))}
           </>
   )}
-        <div>{isFetching ? "Background Updating..." : " "}</div>
       </main>
     </Layout>
   );

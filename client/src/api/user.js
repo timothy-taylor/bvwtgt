@@ -2,12 +2,14 @@ import { timeoutAxios } from "./axiosInstances";
 import CSRFToken from "../Cookies";
 
 const UserServices = {
+
   loginStatus: () => (
     timeoutAxios
       .get("/api/logged_in", { withCredentials: true })
       .then((response) => response.data)
       .catch((error) => console.log("api errors:", error))
   ),
+
   login: (email,password) => (
     timeoutAxios
       .post(
@@ -29,6 +31,7 @@ const UserServices = {
       .then((response) => response.data)
       .catch((error) => console.log("api errors:", error))
   ),
+
   logout: () => (
     timeoutAxios
       .delete(
@@ -44,6 +47,7 @@ const UserServices = {
       .then((response) => response.data)
       .catch((error) => console.log("api errors:", error))
   ),
+
 }
 
 export default UserServices;

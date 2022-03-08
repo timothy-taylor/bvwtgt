@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def require_login
     render :text => "Not logged in", :status => 401 unless logged_in?
   end
