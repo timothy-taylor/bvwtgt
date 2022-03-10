@@ -1,9 +1,10 @@
 import React from "react";
+import sanitizeHtml from "sanitize-html";
 
 const DisplayPost = ({title, markdown}) => {
   React.useEffect(() => {
     const p = document.getElementById("markdown");
-    p.innerHTML = markdown;
+    p.innerHTML = sanitizeHtml(markdown);
   },[markdown])
 
   return (

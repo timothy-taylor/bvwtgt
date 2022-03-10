@@ -29,6 +29,7 @@ code {
 body {
   background-color: var(--bkg-color);
   color: var(--text-color);
+  overflow-y: scroll;
 }
 .screenreader-text {
   position: absolute;
@@ -39,7 +40,7 @@ body {
 }
 .screenreader-text:focus {
   color: black;
-  display: inline-block;
+  display: block;
   height: auto;
   width: auto;
   position: static;

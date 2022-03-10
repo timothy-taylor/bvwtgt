@@ -18,7 +18,6 @@ main h3 {
 }
 
 main p {
-  text-align: justify;
   font-size: 1.2em;
   padding-top: 0.6em;
 }
@@ -80,7 +79,18 @@ textarea {
   height: auto;
 }
 
-#nav-title,
+.icon {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 0.8em;
+  right: 1.2em;
+}
+.icon:hover, .icon:focus {
+  cursor: pointer;
+  color: goldenrod;
+}
+
 #nav-about,
 #nav-writing,
 #nav-projects {
@@ -93,27 +103,27 @@ textarea {
   transform: skew(178deg, 178deg);
   width: 345px;
   text-transform: uppercase;
+  border: 1px solid var(--text-color);
 }
 
-#nav-title {
-  border: 1px solid var(--text-color);
+#nav-about {
   top: 2em;
-  font-weight: normal;
-  text-align: center;
-  text-transform: lowercase;
-  letter-spacing: 4px;
 }
 
 #nav-writing {
   top: 3.5em;
 }
 
-#nav-about {
+#nav-projects {
   top: 5em;
 }
 
+#nav-projects:hover,
+#nav-projects:focus,
 #nav-about:hover,
-#nav-writing:hover {
+#nav-about:focus,
+#nav-writing:hover,
+#nav-writing:focus {
   background-color: goldenrod;
   color: white;
   cursor: pointer;
@@ -139,15 +149,19 @@ textarea {
   max-width: 26ch;
 }
 
-.about-content {
+#project-parent, .about-content {
   max-width: 80ch;
+}
+
+#project-parent ol {
+  list-style: none;
 }
 
 @media only screen and (min-width: 600px) {
   main {
     top: 5em;
   }
-  #nav-title,
+  #nav-projects,
   #nav-about,
   #nav-writing {
     font-size: 2.5em;
@@ -161,7 +175,7 @@ textarea {
   main {
     top: 2em;
   }
-  #nav-title,
+  #nav-projects,
   #nav-about,
   #nav-writing {
     right: 2em;
@@ -175,35 +189,24 @@ textarea {
   main {
     top: 5em;
   }
-  #nav-title,
+  #nav-projects,
   #nav-about,
   #nav-writing {
     right: 4em;
     background-color: inherit;
   }
-  #nav-title {
+  #nav-about {
     top: 5.5em;
   }
   #nav-writing {
     top: 7em;
   }
-  #nav-about {
+  #nav-projects {
     top: 8.5em;
   }
 }
-.icon {
-  width: 2em;
-  height: 2em;
-  position: absolute;
-  top: 0.8em;
-  right: 1.2em;
-}
-.icon:hover, .icon:focus {
-  cursor: pointer;
-  color: goldenrod;
-}
+
 .active {
   border: 1px solid goldenrod;
   color: goldenrod;
 }
-

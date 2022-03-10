@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useAtom } from "jotai";
@@ -9,8 +8,10 @@ import User from "./components/User";
 import About from "./components/About";
 import Writing from "./components/Writing";
 import NotFound from "./NotFound";
+import Projects from "./components/Projects";
 import { isLoggedInAtom, userAtom, themeAtom } from "./Atoms";
 import UserAPI from "./api/user";
+import "./App.css";
 
 const App = () => {
   // Atoms are global state
@@ -69,6 +70,7 @@ const App = () => {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/post/:id" element={<Post />} />
           <Route exact path="/writing" element={<Writing />} />
+          <Route exact path="/projects" element={<Projects />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
