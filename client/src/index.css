@@ -6,6 +6,7 @@
   font-size: 100%;
   box-sizing: border-box;
   text-decoration: none;
+  line-height: calc(1em + 0.5rem);
   font-family: "Sen", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
