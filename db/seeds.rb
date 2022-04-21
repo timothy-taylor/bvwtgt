@@ -15,6 +15,10 @@ testing = Tag.create!(name: "testing")
 Post.create(
   title: "hello world", 
   content: "During the past couple weeks I have been participating in Code Newbie's Cohort One 'Get a Job' challenge. One of the assignments was to document a handful of job descriptions from companies you were interested in and synthesize that data in order to know what kind of jobs are a reach, on target, or a safety as well as document what desirable skills you may want to add for your career development.
+
+* here is a list
+* of things
+* that we like to see
   
 One of the areas I need to work on most came from a job description: 'excellent communication skills as demonstrated via past collaborative experience, writings, video, etc..'. I feel I can be a good communicator in person (especially nowadays), but have a historical lack of documentation of this ability.
 

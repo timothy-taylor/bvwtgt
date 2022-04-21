@@ -13,6 +13,8 @@ const Header = (props) => {
     });
 
   React.useEffect(() => {
+    // should be able to replace this whole effect
+    // using <NavLink> from react-router-dom
     const writing = document.getElementById("nav-writing");
     const about = document.getElementById("nav-about");
     const projects = document.getElementById("nav-projects");

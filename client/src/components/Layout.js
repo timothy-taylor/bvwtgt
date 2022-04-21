@@ -1,13 +1,14 @@
-import Header from './Header';
-import Footer from './Footer';
+import Header from "./Header";
+import Footer from "./Footer";
 
-
-const Layout = (props) => (
+const Layout = ({active, children}) => (
   <>
-    <Header active={props.active} />
-      {props.children}
+    {/* if using <NavLink> can remove active props passing */}
+    <Header active={active} />
+    {/* should wrap children in <main> here so it can be removed from individual pages */}
+    {children}
     <Footer />
   </>
-)
+);
 
-export default Layout
+export default Layout;
