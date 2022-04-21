@@ -71,10 +71,10 @@ footer {
 /* need to increase font-size of lists */
 ul,
 ol {
+  font-size: 1.2em;
   text-align: left;
   padding-left: 1.3em;
   margin: 0.5em 0;
-  font: inherit;
 }
 
 textarea {
