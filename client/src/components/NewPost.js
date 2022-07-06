@@ -1,12 +1,12 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import { isLoggedInAtom } from "../Atoms";
 import PostAPI from "../api/post";
 
-const NewPost = () => {
+export default function NewPost() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
-  const [tags, setTags] = React.useState([]);
-  const [post, setPost] = React.useState({
+  const [tags, setTags] = useState([]);
+  const [post, setPost] = useState({
     title: "",
     content: "",
     tag: "",
@@ -19,6 +19,7 @@ const NewPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const status = await PostAPI.createPost(post);
     if (status === 201) {
       setPost({
@@ -36,7 +37,7 @@ const NewPost = () => {
     setTags(data);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     getAndSetTags();
   }, []);
 
@@ -75,6 +76,4 @@ const NewPost = () => {
       )}
     </>
   );
-};
-
-export default NewPost;
+}

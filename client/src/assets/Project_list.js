@@ -50,9 +50,11 @@ export const list = [
       github: "https://github.com/timothy-taylor/odin_pacebook_rails",
       live: "https://odin-pacebook-rails.herokuapp.com",
     },
-    description: "A fullstack Ruby on Rails built Facebook clone built for runners.",
+    description:
+      "A fullstack Ruby on Rails built Facebook clone built for runners.",
     how: "A fullstack Ruby on Rails monolyth hooked up to a Postgres database. It uses the devise gem for authentication, Postgres for its database, hosted on Heruko.",
-    feature: "The data relationships in this app are fully operational -- friends, friend requests, posts, comments. Purposely kept the posts plain text and did not put in likes for ethical reasons. Part of the assignment, as part of The Odin Project, was to add OAuth support. As I am not a Facebook user, I decided to use Github as my OAuth counterpart. Due to the fact that you can sign up for a Github account without a username (if I recall the issue correctly), I had to tweak my user and authentication in order for Github to play nice with my authentication setup. Improving the user login and authentication (and probably removing the OAuth support) would be worth another pass at some point. Truthfully, this was the Ruby on Rails final project for The Odin Project and I was trying to get to minimum viable products as fast as possible.",
+    feature:
+      "The data relationships in this app are fully operational -- friends, friend requests, posts, comments. Purposely kept the posts plain text and did not put in likes for ethical reasons. Part of the assignment, as part of The Odin Project, was to add OAuth support. As I am not a Facebook user, I decided to use Github as my OAuth counterpart. Due to the fact that you can sign up for a Github account without a username (if I recall the issue correctly), I had to tweak my user and authentication in order for Github to play nice with my authentication setup. Improving the user login and authentication (and probably removing the OAuth support) would be worth another pass at some point. Truthfully, this was the Ruby on Rails final project for The Odin Project and I was trying to get to minimum viable products as fast as possible.",
   },
   {
     name: "weather terminal",
@@ -62,6 +64,7 @@ export const list = [
     },
     description: "A vanilla JS weather app that mimics a terminal aesthetic.",
     how: "Built using webpack and deployed to Github Pages. Fetches from Open Weather Map.",
-    feature: "I enjoy this little app way more than I should, but its kind of beautiful in its simplicity while delivering just the information one could want in a simple text format.",
-  }
+    feature:
+      "I enjoy this little app way more than I should, but its kind of beautiful in its simplicity while delivering just the information one could want in a simple text format.",
+  },
 ];

@@ -1,22 +1,25 @@
-import React from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { isLoggedInAtom, userAtom } from "../Atoms";
 import CSRFToken from "../Cookies";
 
-const User = () => {
+export default function User() {
   const [user] = useAtom(userAtom);
   const [isLoggedIn] = useAtom(isLoggedInAtom);
-  const [email, setEmail] = React.useState(user.email);
-  const [password, setPassword] = React.useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = React.useState("");
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handlePasswordConfirmationChange = (e) =>
     setPasswordConfirmation(e.target.value);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios
       .patch(
         "/api/users/" + user.id,
@@ -74,6 +77,4 @@ const User = () => {
       <Link to="/">Home</Link>
     </>
   );
-};
-
-export default User;
+}

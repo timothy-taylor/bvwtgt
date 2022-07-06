@@ -1,38 +1,35 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-import { marked } from "marked";
 import Layout from "./Layout";
 import PostAPI from "../api/post";
 
-marked.setOptions({ breaks: true });
+const usePostQuery = () => useQuery("posts", PostAPI.getPosts);
 
-const usePosts = () => useQuery('posts', PostAPI.getPosts);
+const Posts = ({ status, data, error }) => {
+  if (status === "loading") return "Loading posts...";
+  if (status === "error") return `Something went wrong, ${error.message}`;
+  return (
+    <>
+      {data.map((e, i) => (
+        <article key={"post" + i} className="post">
+          <h2 key={"title" + i}>
+            <Link to={"/post/" + e.id}>{e.title}</Link>
+          </h2>
+          <h3 key={"subtitle" + i}>{e.created_at}</h3>
+        </article>
+      ))}
+    </>
+  );
+};
 
-const Writing = () => {
-  const { status, data, error } = usePosts();
+export default function Writing() {
+  const { status, data, error } = usePostQuery();
 
   return (
     <Layout active="Writing">
       <main id="main-content">
-        {status === "loading" ? (
-          "Loading Posts..."
-        ) : status === "error" ? (
-          <span>Something went wrong {error.message}</span>
-        ) : (
-          <>
-        {(data).map((e, i) => (
-          <article key={"post" + i} className="post">
-            <h2 key={"title" + i}>
-              <Link to={"/post/" + e.id}>{e.title}</Link>
-            </h2>
-            <h3 key={"subtitle" + i}>{e.created_at}</h3>
-          </article>
-        ))}
-          </>
-  )}
+        <Posts {...{ status, data, error }} />
       </main>
     </Layout>
   );
-};
-
-export default Writing;
+}

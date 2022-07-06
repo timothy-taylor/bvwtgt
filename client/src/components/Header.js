@@ -1,18 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { Link } from "react-router-dom";
 import hero from "../assets/hero.svg";
 import { Light, Dark } from "../assets/Icons";
 import { themeAtom } from "../Atoms";
 
-const Header = (props) => {
+export default function Header({ active }) {
   const [theme, setTheme] = useAtom(themeAtom);
-  const toggleTheme = () =>
-    setTheme((prev) => {
-      return prev === "light" ? "dark" : "light";
-    });
+  const toggleTheme = () => setTheme((prev) => !prev);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // should be able to replace this whole effect
     // using <NavLink> from react-router-dom
     const writing = document.getElementById("nav-writing");
@@ -20,7 +17,7 @@ const Header = (props) => {
     const projects = document.getElementById("nav-projects");
     [writing, about, projects].forEach((e) => e.classList.remove("active"));
 
-    switch (props.active) {
+    switch (active) {
       case "Writing":
         writing.classList.add("active");
         break;
@@ -32,7 +29,7 @@ const Header = (props) => {
         break;
       default:
     }
-  }, [props.active]);
+  }, [active]);
 
   return (
     <>
@@ -55,6 +52,4 @@ const Header = (props) => {
       </nav>
     </>
   );
-};
-
-export default Header;
+}

@@ -2,7 +2,6 @@ import { timeoutAxios } from "./axiosInstances";
 import CSRFToken from "../Cookies";
 
 const UserServices = {
-
   loginStatus: () => (
     timeoutAxios
       .get("/api/logged_in", { withCredentials: true })

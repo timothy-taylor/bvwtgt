@@ -1,4 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+@font-face {
+  font-family: 'Noto Serif';
+  src: url("./assets/Noto_Serif/NotoSerif-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sen';
+  src: url("./assets/Sen/Sen-Regular.ttf") format("truetype");
+}
 
 * {
   margin: 0;
@@ -7,31 +15,35 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: calc(1em + 0.5rem);
-  font-family: "Sen", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 body {
   --text-color: black;
   --bkg-color: white;
   --light-color: #c4c4c4;
   --dark-color: #636363;
 }
+
 body.dark-theme {
   --text-color: white;
-  --bkg-color: #211A1D;
+  --bkg-color: #211a1d;
   --light-color: #636363;
   --dark-color: #c4c4c4;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 body {
   background-color: var(--bkg-color);
   color: var(--text-color);
   overflow-y: scroll;
 }
+
 .screenreader-text {
   position: absolute;
   left: -999px;
@@ -39,6 +51,7 @@ body {
   height: 1px;
   top: auto;
 }
+
 .screenreader-text:focus {
   color: black;
   display: block;

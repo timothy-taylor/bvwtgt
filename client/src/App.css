@@ -16,18 +16,24 @@ main hr {
 
 main h2 {
   font-size: 2em;
+  font-family: "Sen", sans-serif;
 }
 
 main h3 {
   color: var(--light-color);
+  font-family: "Sen", sans-serif;
 }
 
 main p {
   font-size: 1.2em;
   padding-top: 0.6em;
+  font-family: 'Noto Serif', serif;
+  text-align: justify;
+  text-indent: 15%;
 }
 
 main blockquote {
+  font-family: 'Noto Serif', serif;
   padding: 0 1.3em 1.3em 1.3em;
   border-left: 3px solid var(--light-color);
   color: var(--dark-color);
@@ -59,6 +65,7 @@ a:focus {
 }
 
 footer {
+  font-family: "Sen", sans-serif;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -68,9 +75,9 @@ footer {
   letter-spacing: 3px;
 }
 
-/* need to increase font-size of lists */
 ul,
 ol {
+  font-family: 'Noto Serif', serif;
   font-size: 1.2rem;
   text-align: left;
   padding-left: 1.3em;
@@ -101,6 +108,7 @@ textarea {
 #nav-about,
 #nav-writing,
 #nav-projects {
+  font-family: "Sen", sans-serif;
   color: var(--text-color);
   background-color: var(--bkg-color);
   position: absolute;
@@ -157,7 +165,7 @@ textarea {
 }
 
 #project-parent, .about-content {
-  max-width: 80ch;
+  max-width: 72ch;
 }
 
 #project-parent ol {

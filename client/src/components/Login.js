@@ -6,7 +6,7 @@ import NewPost from "./NewPost";
 import NewTag from "./NewTag";
 import UserAPI from "../api/user";
 
-const Login = ({ handleLogin, handleLogout }) => {
+export default function Login ({ handleLogin, handleLogout }) {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
   const [errors, setErrors] = React.useState([]);
   const [credentials, setCredentials] = React.useState({
@@ -28,6 +28,7 @@ const Login = ({ handleLogin, handleLogout }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const data = await UserAPI.login(credentials.email, credentials.password);
     if (data.logged_in) {
       handleLogin(data.user);
@@ -79,6 +80,4 @@ const Login = ({ handleLogin, handleLogout }) => {
       </div>
     </div>
   );
-};
-
-export default Login;
+}

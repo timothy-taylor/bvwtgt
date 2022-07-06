@@ -1,6 +1,6 @@
 import Layout from "./Layout";
 
-const About = () => {
+export default function About() {
   return (
     <Layout active="About">
       <main id="main-content">
@@ -15,9 +15,9 @@ const About = () => {
           and responsive designs.
         </p>
         <p className="about-content">
-          I'm also a person, musician, and a team player (bandmate?) with a
-          knack for staying cool under fire who loves to work on interesting
-          projects of all kinds.
+          I'm also a generalist, musician, and a team player who enjoys
+          improvisation, learning, and uncovering hidden assumptions and
+          expectations so everyone can be on the same page.
         </p>
         <p className="about-content">
           Using my experience as a luthier and instrument designer I treat my
@@ -25,52 +25,31 @@ const About = () => {
           something that is both simple and easily discoverable yet rewards
           deeper interaction and study. In my free time I enjoy coding musical
           controllers and interfaces for both the browser and various hardware
-          devices.
+          devices. Happy to chat about any of the following:
         </p>
         <div className="about-content">
-          <em>My other interests include:</em>
           <ul>
+            <li>synthesis / sound / instrument design</li>
+            <li>chess</li>
+            <li>skateboarding</li>
+            <li>electric guitar</li>
             <li>
-              Learning about:
-              <ul>
-                <li>synthesis / sound / instrument design</li>
-                <li>chess</li>
-                <li>skateboarding</li>
-                <li>jazz guitar</li>
-                <li>the Japanese language</li>
-              </ul>
+              carving out space and energy to live and have a sustainable career
+              as an agoraphobic
             </li>
-            <li>
-              Meditating on:
-              <ul>
-                <li>
-                  carving out space to live and have a sustainable career as an
-                  agoraphobic
-                </li>
-                <li>Andrei Tarkovsky films</li>
-                <li>Rilke, Hesse, Nabakov, Camus, etc</li>
-                <li>Bauhausian modernism</li>
-                <li>Camusian restraint as rebellion minimalism</li>
-                <li>iterative processes and generative patterns</li>
-                <li>grounding rhymth</li>
-                <li>I Ching</li>
-              </ul>
-            </li>
-            <li>
-              Creating good habits for:
-              <ul>
-                <li>enjoying matcha</li>
-                <li>watching the Boston Celtics</li>
-                <li>making music</li>
-                <li>morning workouts</li>
-                <li>laughing with Chris Farley</li>
-                <li>balancing free improvisation with intentionality</li>
-              </ul>
-            </li>
+            <li>Andrei Tarkovsky films</li>
+            <li>Rilke, Hesse, Nabakov, Camus, etc</li>
+            <li>Bauhausian modernism</li>
+            <li>Camusian restraint as rebellion minimalism</li>
+            <li>iterative processes and generative patterns</li>
+            <li>grounding rhymth</li>
+            <li>I Ching</li>
+            <li>tea and espresso</li>
+            <li>watching the Boston Celtics</li>
+            <li>morning workouts</li>
+            <li>balancing free improvisation with intentionality</li>
           </ul>
         </div>
-        <br />
-        <p>contact @ tim [at] bvwtgt [dot] xyz</p>
         <a href="https://www.linkedin.com/in/timothy-g-taylor">LinkedIn</a>
         <a href="https://github.com/timothy-taylor">Github</a>
         <a href="https://tgtmusic.bandcamp.com/">Bandcamp</a>
@@ -80,6 +59,4 @@ const About = () => {
       </main>
     </Layout>
   );
-};
-
-export default About;
+}
