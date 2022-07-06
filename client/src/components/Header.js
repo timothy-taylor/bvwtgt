@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { Link } from "react-router-dom";
-import hero from "../assets/hero.svg";
 import { Light, Dark } from "../assets/Icons";
 import { themeAtom } from "../Atoms";
+import hero from "../assets/hero.svg";
 
 export default function Header({ active }) {
   const [theme, setTheme] = useAtom(themeAtom);
-  const toggleTheme = () => setTheme((prev) => !prev);
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   useEffect(() => {
     // should be able to replace this whole effect
