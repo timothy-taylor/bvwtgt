@@ -39,15 +39,11 @@ export default function About() {
             </li>
             <li>Andrei Tarkovsky films</li>
             <li>Rilke, Hesse, Nabakov, Camus, etc</li>
-            <li>Bauhausian modernism</li>
-            <li>Camusian restraint as rebellion minimalism</li>
             <li>iterative processes and generative patterns</li>
-            <li>grounding rhymth</li>
-            <li>I Ching</li>
+            <li>balancing free improvisation with intentionality</li>
             <li>tea and espresso</li>
             <li>the Boston Celtics</li>
             <li>morning workouts</li>
-            <li>balancing free improvisation with intentionality</li>
           </ul>
         </div>
         <a href="https://www.linkedin.com/in/timothy-g-taylor">LinkedIn</a>
