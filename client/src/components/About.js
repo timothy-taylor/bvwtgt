@@ -45,7 +45,7 @@ export default function About() {
             <li>grounding rhymth</li>
             <li>I Ching</li>
             <li>tea and espresso</li>
-            <li>watching the Boston Celtics</li>
+            <li>the Boston Celtics</li>
             <li>morning workouts</li>
             <li>balancing free improvisation with intentionality</li>
           </ul>

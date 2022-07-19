@@ -165,6 +165,10 @@ textarea {
   max-width: 26ch;
 }
 
+#markdown {
+  max-width: 100%;
+}
+
 #project-parent, .about-content {
   max-width: 72ch;
 }
